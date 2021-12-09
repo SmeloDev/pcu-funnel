@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing reports</title>
+    <link href="marketing_reports.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+
+<div class="content-wrapper">
+    <section class="filter-section">
+        <div class="filter-header">
+            <div class="close-btn">&#8212</div>
+        </div>
+        <div class="filter-content">
+            <form action="">
+                <label>
+                    <span>Автомобіль:</span>
+                    <div class="select-container">
+                        <div class="icon" tooltip="Вибір моделі авто:"><i class="fa fa-car"></i></div>
+                        <div class="select">
+                            <select name="" id="">
+                                <option value="all">Всі</option>
+                                <option value="citroёn">Citroёn</option>
+                                <option value="opel">Opel</option>
+                                <option value="peugeot">Peugeot</option>
+                                <option value="ds">DS</option>
+                            </select>
+                            <div class="angle-icon">
+                                <i class="fa fa-angle-down"></i>
+                            </div>  
+                        </div>
+                        
+                    </div>
+                    
+                </label>
+                <label>
+                    <span>Період від:</span>
+                    <div class="select-container">
+                    <div class="icon" tooltip="Ви можете переглянути данні за будь-який період:"><i class="fa fa-calendar"></i></div>
+                    <input type="date" name="date" /></div>
+                </label>
+                <label>
+                    <span>Період до:</span>
+                     <div class="select-container">
+                    <div class="icon" tooltip="Ви можете переглянути данні за будь-який період:"><i class="fa fa-calendar"></i></div>
+                    <input type="date" name="date" /></div>
+                </label>
+                <label>
+                    <span>Валюта:</span>
+                <div class="select-container">
+                    <div class="icon" tooltip="Валюта"><i class="fa fa-money"></i></div>
+                    <div class="select">
+                        <select name="" id="">
+                            <option value="all">Всі</option>
+                            <option value="citroёn">Citroёn</option>
+                            <option value="opel">Opel</option>
+                            <option value="peugeot">Peugeot</option>
+                            <option value="ds">DS</option>
+                        </select>
+                        <div class="angle-icon">
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                    </div>
+                </div>
+                </label>
+                <label>
+                    <span>Канал:</span>
+                    <div class="select-container">
+                        <div class="icon" tooltip="Канал"><i class="fa fa-shopping-cart"></i></div>
+                        <div class="select">
+                            <select name="" id="">
+                                <option value="all">Всі</option>
+                                <option value="citroёn">Citroёn</option>
+                                <option value="opel">Opel</option>
+                                <option value="peugeot">Peugeot</option>
+                                <option value="ds">DS</option>
+                            </select>
+                            <div class="angle-icon">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+            </form>
+        </div>
+    </section>
+    <section class="marketing-content">
+        <div class="funnel-box">
+            <div class="box-header">
+                <ul>
+                    <li>
+                        <div class="count-date">01.08.2020 по 01.09.2020</div>
+                    </li>
+                    <li>
+                        <div class="count-date">01.08.2020 по 01.09.2020</div>
+                    </li>
+                </ul>
+                <div class="header-btns">
+                    <div class="open-view-btns">&#11020</div>
+                    <div class="close-btns">&#215</div>
+                </div>
+            </div>
+            <div class="box-content">
+                <div id='first-funnel'></div>
+                <div id="difference-of-values">
+                    <ul class="difference-list">
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Vehicle sessions</div>
+                                <div class="difference-percentage">+20%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Engaged configurations</div>
+                                <div class="difference-percentage negative-persentage">-10%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Digital leads</div>
+                                <div class="difference-percentage">+2%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Showroom trafic</div>
+                                <div class="difference-percentage negative-persentage">-5%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Retail commercial offer</div>
+                                <div class="difference-percentage">+23%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Retail contracts</div>
+                                <div class="difference-percentage negative-persentage">-12%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Digital sales</div>
+                                <div class="difference-percentage">+9%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Transformation rate</div>
+                                <div class="difference-percentage">+12%</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id='second-funnel'></div>
+            </div>
+        </div>
+        <div class="statistic-box">
+            <div class="box-header">
+                <div class="header-btns">
+                    <div class="open-view-btns">&#11020</div>
+                    <div class="close-btns">&#215</div>
+                </div>
+            </div>
+            <div class="box-content">
+                <div id='first-chart-bar'></div>
+                <div id="difference-of-values">
+                    <ul class="difference-list">
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Cost marketing</div>
+                                <div class="difference-percentage">+23%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Cost per visit</div>
+                                <div class="difference-percentage negative-persentage">-7%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Cost per leads/off</div>
+                                <div class="difference-percentage">+27%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="difference-item">
+                                <div class="difference-title">Cost per order</div>
+                                <div class="difference-percentage">+37%</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id='second-chart-bar'></div>
+            </div>
+            <div class="box-date">
+                <ul>
+                    <li>
+                        <div class="icon-date first-period"></div>
+                        <div class="count-date">01.08.2020 по 01.09.2020</div>
+                    </li>
+                    <li>
+                        <div class="icon-date"></div>
+                        <div class="count-date">01.08.2020 по 01.09.2020</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+   
+    <script src="./funnel.js"></script>
+</body>
+</html>

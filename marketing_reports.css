@@ -1,0 +1,399 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.42;
+}
+
+.content-wrapper {
+  min-height: 889px;
+  height: 100vh;
+  margin-left: 230px;
+  padding-top: 70px;
+
+  background-color: #ecf0f5;
+  z-index: 800;
+}
+
+@media screen and (max-width: 1800px) {
+  .content-wrapper {
+    margin-left: 150px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .content-wrapper {
+    margin-left: 0;
+  }
+}
+
+.filter-section {
+  margin: 20px 20px 30px 20px;
+
+  background-color: #fff;
+}
+
+.filter-header {
+  position: relative;
+  min-height: 50px;
+  background-color: #223464;
+}
+
+.filter-header .close-btn {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+
+  text-align: center;
+  cursor: pointer;
+
+  color: #fff;
+  font-weight: 900;
+  border: 2px solid #fff;
+  transform: translate(0, -50%);
+}
+
+.filter-content {
+  min-height: 110px;
+  padding: 10px 30px 20px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-content form {
+  display: flex;
+  flex-wrap: wrap;
+
+  font-size: 12px;
+}
+
+.filter-content label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.filter-content label:not(:last-child) {
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 700px) {
+  .filter-content label:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+.filter-content label span {
+  margin-bottom: 5px;
+}
+
+.filter-content label .select-container {
+  display: flex;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  min-width: 42px;
+  position: relative;
+
+  font-size: 12px;
+  padding: 5px 10px;
+  color: #223464 !important;
+  cursor: help;
+
+  border: 1px solid #223464;
+  border-right: none;
+}
+
+.filter-content label select,
+.filter-content label input {
+  height: 36px;
+  padding: 0 20px 0 8px;
+
+  border: 1px solid #223464;
+  outline: none;
+}
+
+input {
+  position: relative;
+}
+
+.icon[tooltip]:hover:after {
+  content: attr(tooltip);
+  position: absolute;
+  top: -30px;
+  padding: 5px;
+  width: 150px;
+
+  background-color: #223464;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0.9;
+  z-index: 3;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  margin: 0;
+}
+
+.filter-content label select {
+  display: block;
+  min-width: 180px;
+  width: 100%;
+  position: relative;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  font-size: 12px;
+}
+.select {
+  position: relative;
+}
+
+.angle-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -50%);
+
+  font-size: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .filter-content label {
+    width: 100%;
+  }
+}
+
+.marketing-content {
+  padding: 0 40px;
+  display: flex;
+}
+@media screen and (max-width: 1024px) {
+  .marketing-content {
+    flex-direction: row;
+  }
+}
+
+.marketing-content .funnel-box {
+  width: 70%;
+  margin-right: 20px;
+
+  background-color: #fff;
+  border-top: 7px solid #223464;
+}
+
+@media screen and (max-width: 1024px) {
+  .marketing-content .funnel-box {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.marketing-content .statistic-box {
+  width: 30%;
+  /* height: 300px; */
+
+  background-color: #fff;
+  border-top: 7px solid #56bdea;
+}
+@media screen and (max-width: 1024px) {
+  .marketing-content .statistic-box {
+    width: 100%;
+  }
+}
+
+.box-header {
+  position: relative;
+  height: 50px;
+  background-color: #f6f7f7;
+}
+
+.box-header ul {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.box-header ul li .count-date {
+  font-size: 14px;
+}
+
+.box-header .header-btns {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  color: #223464;
+}
+
+.box-header .header-btns .open-view-btns {
+  font-size: 28px;
+  transform: rotateZ(-45deg);
+}
+
+.box-header .header-btns .close-btns {
+  font-size: 40px;
+}
+
+.box-content {
+  display: flex;
+}
+
+#first-funnel {
+  width: 35%;
+  height: 430px;
+}
+
+#difference-of-values {
+  width: 30%;
+}
+
+#second-funnel {
+  width: 35%;
+  height: 430px;
+}
+
+.difference-list {
+  padding: 25px 10px;
+  margin: 0;
+  list-style-type: none;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.difference-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.difference-title {
+  width: 150px;
+}
+.funnel-box .difference-percentage {
+  position: relative;
+  width: 70px;
+  height: 23px;
+  background-color: #3a9b13;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.difference-percentage::after {
+  content: "↑";
+  position: absolute;
+  transform: scale(1.7);
+  right: -10px;
+  color: #3a9b13;
+}
+
+.funnel-box .difference-percentage.negative-persentage {
+  background-color: #f44d3e;
+}
+
+.difference-percentage.negative-persentage::after {
+  content: "↓";
+  color: #f44d3e;
+}
+
+.canvasjs-chart-credit {
+  display: none;
+}
+
+#first-chart-bar {
+  width: 40%;
+}
+
+#second-chart-bar {
+  width: 40%;
+}
+.statistic-box .difference-list li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.statistic-box .difference-item {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.statistic-box .difference-title {
+  width: auto;
+  text-align: center;
+}
+
+.statistic-box .difference-percentage {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #3a9b13;
+  font-size: 12px;
+  font-weight: 700;
+}
+.statistic-box .difference-percentage.negative-persentage {
+  color: #f44d3e;
+}
+
+.box-date ul {
+  padding-left: 25px;
+  list-style-type: none;
+}
+
+.box-date ul li {
+  display: flex;
+}
+
+.box-date ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.box-date .icon-date {
+  height: 22px;
+  width: 22px;
+  margin-right: 10px;
+  background-color: #56bdea;
+}
+
+.box-date .count-date {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.box-date .icon-date.first-period {
+  background-color: #1b506e;
+}
