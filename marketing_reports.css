@@ -10,7 +10,7 @@ body {
 
 .content-wrapper {
   min-height: 889px;
-  height: 100vh;
+
   margin-left: 230px;
   padding-top: 70px;
 
@@ -183,9 +183,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 0 40px;
   display: flex;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .marketing-content {
-    flex-direction: row;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 425px) {
+  .marketing-content {
+    padding: 0 20px;
   }
 }
 
@@ -197,7 +202,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-top: 7px solid #223464;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .marketing-content .funnel-box {
     width: 100%;
     margin-right: 0;
@@ -212,7 +217,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #fff;
   border-top: 7px solid #56bdea;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .marketing-content .statistic-box {
     width: 100%;
   }
@@ -234,6 +239,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   justify-content: space-around;
 }
+
+@media screen and (max-width: 768px) {
+  .box-header ul {
+    flex-direction: column;
+  }
+}
+
 .box-header ul li .count-date {
   font-size: 14px;
 }
@@ -260,6 +272,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
 }
 
+@media screen and (max-width: 768px) {
+  .funnel-box .box-content {
+    flex-direction: column;
+  }
+}
+
 #first-funnel {
   width: 35%;
   height: 430px;
@@ -272,6 +290,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #second-funnel {
   width: 35%;
   height: 430px;
+}
+
+@media screen and (max-width: 768px) {
+  #first-funnel,
+  .funnel-box #difference-of-values,
+  #second-funnel {
+    width: 100%;
+  }
 }
 
 .difference-list {
@@ -293,6 +319,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .difference-item {
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .difference-item {
+    justify-content: space-evenly;
+  }
 }
 
 .difference-title {
