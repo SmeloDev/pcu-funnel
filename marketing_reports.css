@@ -125,6 +125,12 @@ body {
   outline: none;
 }
 
+@media screen and (max-width: 700px) {
+  .filter-content label input {
+    width: 100%;
+  }
+}
+
 input {
   position: relative;
 }
@@ -162,6 +168,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .select {
   position: relative;
+}
+
+@media screen and (max-width: 700px) {
+  .select {
+    width: 100%;
+  }
 }
 
 .angle-icon {
