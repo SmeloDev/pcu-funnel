@@ -266,6 +266,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 14px;
 }
 
+.box-header ul li .delimiter {
+  width: 100px;
+  text-align: center;
+  color: silver;
+  font-size: 25px;
+}
+@media screen and (max-width: 768px) {
+  .box-header ul li .delimiter {
+    display: none;
+  }
+}
+
 .box-header .header-btns {
   position: absolute;
   right: 10px;
@@ -311,6 +323,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 0;
   position: relative;
 }
+
+@media screen and (min-width: 1700px) {
+  .trapezoid {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+}
+
 .trapezoid .funnel-count {
   position: absolute;
   top: -30px;
