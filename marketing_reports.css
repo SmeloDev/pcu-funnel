@@ -9,7 +9,7 @@ body {
 }
 
 .content-wrapper {
-  min-height: 889px;
+  min-height: 100vh;
 
   margin-left: 230px;
   padding-top: 70px;
@@ -29,6 +29,8 @@ body {
     margin-left: 0;
   }
 }
+
+/* --- Cтили секции фильтрации ---  */
 
 .filter-section {
   margin: 20px 20px 30px 20px;
@@ -235,6 +237,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+/* --- Cтили заголовка секции воронки --- */
+
 .box-header {
   position: relative;
   height: 50px;
@@ -290,10 +294,70 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+/* --- Cтили секции воронки --- */
+
+/* Cтили блока воронок */
+
 #first-funnel {
   width: 35%;
   height: 430px;
 }
+
+.trapezoid {
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  height: 0;
+  position: relative;
+}
+.trapezoid .funnel-count {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.trap_1 {
+  width: 100%;
+  border-top: 40px solid #1b506e;
+}
+
+.trap_2 {
+  width: 95%;
+
+  border-top: 40px solid #0f3155;
+}
+.trap_3 {
+  width: 90%;
+
+  border-top: 40px solid #1a3c60;
+}
+.trap_4 {
+  width: 85%;
+  border-top: 40px solid #245282;
+}
+.trap_5 {
+  width: 80%;
+  border-top: 40px solid #3171b1;
+}
+.trap_6 {
+  width: 75%;
+  border-top: 40px solid #528bb8;
+}
+.trap_7 {
+  width: 70%;
+  border-top: 40px solid #449ac0;
+}
+.trap_8 {
+  width: 65%;
+  border-top: 40px solid #56bdea;
+}
+
+/* Cтили блока процентного соотношения периодов */
 
 #difference-of-values {
   width: 30%;
@@ -326,6 +390,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 400;
+}
+
+#difference-of-values .difference-list.above {
+  min-height: 350px;
+}
+
+#difference-of-values .difference-list li:first-child {
+  margin-top: 10px;
 }
 
 .difference-item {
@@ -377,6 +449,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+/* --- Cтили секции боковых графиков --- */
+
 #first-chart-bar {
   width: 40%;
 }
@@ -384,6 +458,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #second-chart-bar {
   width: 40%;
 }
+
+/* Cтили блока процентного соотношения периодов */
+
 .statistic-box .difference-list li:not(:last-child) {
   margin-bottom: 10px;
 }
