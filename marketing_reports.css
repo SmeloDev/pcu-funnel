@@ -267,7 +267,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .box-header ul li .delimiter {
-  width: 100px;
   text-align: center;
   color: silver;
   font-size: 25px;
