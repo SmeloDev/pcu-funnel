@@ -47,6 +47,7 @@ body {
 .filter-header .close-btn {
   height: 35px;
   width: 35px;
+  padding-top: 2px;
   position: absolute;
   top: 50%;
   right: 25px;
@@ -355,7 +356,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #first-funnel {
   width: 35%;
   height: 430px;
-  animation: funnel 1.5s ease normal forwards;
+  animation: funnel 1.5s ease 0.5s normal forwards;
   transform-origin: top center;
 }
 
@@ -432,10 +433,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #second-funnel {
   width: 35%;
   height: 430px;
-  animation: funnel 1.5s ease normal forwards;
+  animation: funnel 1.5s ease 0.5s normal forwards;
   transform-origin: top center;
 }
 
+.animation-emergence {
+  animation: funnel 1.5s ease 0.5s normal forwards;
+  transform-origin: top center;
+}
 @media screen and (max-width: 768px) {
   #first-funnel,
   .funnel-box #difference-of-values,
