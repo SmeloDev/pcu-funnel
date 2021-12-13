@@ -225,7 +225,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-right: 20px;
 
   background-color: #fff;
-  border-top: 7px solid #223464;
+  border-top: 3px solid #223464;
 }
 
 @media screen and (max-width: 1200px) {
@@ -241,7 +241,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   /* height: 300px; */
 
   background-color: #fff;
-  border-top: 7px solid #56bdea;
+  border-top: 3px solid #56bdea;
 }
 @media screen and (max-width: 1200px) {
   .marketing-content .statistic-box {
@@ -285,6 +285,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .box-header ul li .calendar-icon {
   margin-right: 10px;
+  font-size: 20px;
+  color: #223464;
 }
 
 .box-header ul li .delimiter {
@@ -301,15 +303,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .box-header .header-btns {
   position: absolute;
   right: 10px;
-  top: 0;
+  top: 4px;
   display: flex;
   align-items: center;
   color: #223464;
 }
 
 .box-header .header-btns .open-view-btns {
-  height: 16px;
-  width: 16px;
   margin-right: 5px;
 }
 
@@ -597,7 +597,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .table {
   margin-bottom: 30px;
   background-color: #fff;
-  border-top: 7px solid #3171b1;
+  border-top: 3px solid #3171b1;
 }
 
 .table .box-header {
