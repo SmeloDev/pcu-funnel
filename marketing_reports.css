@@ -44,7 +44,7 @@ body {
   background-color: #223464;
 }
 
-.filter-header .close-btn {
+.filter-header .filter-toggle-btn {
   height: 35px;
   width: 35px;
   padding-top: 2px;
@@ -316,6 +316,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .box-header .header-btns .close-btns {
   font-size: 30px;
+  cursor: pointer;
 }
 
 .box-content {
@@ -332,26 +333,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* --- Cтили секции воронки --- */
 
 /* Cтили блока воронок */
-
-@keyframes funnel {
-  0% {
-    transform: translateY(-100%);
-    transform: scaleY(0);
-    opacity: 0.3;
-  }
-  100% {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-}
-@keyframes count {
-  0% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
 #first-funnel {
   width: 35%;
@@ -438,7 +419,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .animation-emergence {
-  animation: funnel 1.5s ease 0.5s normal forwards;
+  animation: funnel 1.5s ease normal forwards;
   transform-origin: top center;
 }
 @media screen and (max-width: 768px) {
@@ -652,4 +633,30 @@ table tbody tr:nth-of-type(2n) {
 
 table tbody tr.total {
   background-color: rgb(180, 180, 180);
+}
+
+/* Анимации */
+
+@keyframes funnel {
+  0% {
+    transform: translateY(-100%);
+    transform: scaleY(0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes count {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.disappearance {
+  display: none;
 }

@@ -4,72 +4,52 @@ window.onload = function () {
     digitGroupSeparator: " ", // Observe axisY labels
   });
 
-  // Первая воронка
-  // const firstFunnel = new CanvasJS.Chart("first-funnel", {
-  //   animationEnabled: true,
-  //   animationDuration: 1500,
-  //   culture: "es",
+  const filterToggleBtn = document.querySelector("div.filter-toggle-btn");
+  const filterContent = document.querySelector("div.filter-content");
 
-  //   title: {
-  //     text: "",
-  //   },
-  //   data: [
-  //     {
-  //       type: "funnel",
-  //       indexLabelPlacement: "inside",
-  //       indexLabelFontColor: "white",
-  //       indexLabelFontWeight: "900",
-  //       indexLabel: "{y}",
-  //       toolTipContent: "<b>{label}</b>: {y} <b>({percentage}%)</b>",
-  //       neckWidth: "65%",
-  //       neckHeight: 0,
-  //       valueRepresents: "area",
-  //       dataPoints: [
-  //         { y: 3871, label: "Vehicle sessions", color: "#1b506e" },
-  //         { y: 2496, label: "Engaged configurations", color: "#0f3155" },
-  //         { y: 1398, label: "Digital leads", color: "#1a3c60" },
-  //         { y: 1118, label: "Showroom trafic", color: "#245282" },
-  //         { y: 800, label: "Retail commercial offer", color: "#3171b1" },
-  //         { y: 600, label: "Retail contracts", color: "#528bb8" },
-  //         { y: 400, label: "Digital sales", color: "#449ac0" },
-  //         { y: 200, label: "Transformation rate", color: "#56bdea" },
-  //       ],
-  //     },
-  //   ],
-  // });
+  const funnelCloseBtn = document.querySelector("div#close-funnel-container");
+  const funnelContainer = document.querySelector("div.funnel-box");
 
-  // Вторая воронка
-  // const secondFunnel = new CanvasJS.Chart("second-funnel", {
-  //   animationEnabled: true,
-  //   animationDuration: 1000,
-  //   culture: "es",
-  //   title: {
-  //     text: "",
-  //   },
-  //   data: [
-  //     {
-  //       type: "funnel",
-  //       indexLabelPlacement: "inside",
-  //       indexLabelFontColor: "white",
-  //       indexLabelFontWeight: "900",
-  //       indexLabel: "{y}",
-  //       toolTipContent: "<b>{label}</b>: {y} <b>({percentage}%)</b>",
-  //       neckWidth: "65%",
-  //       neckHeight: 0,
-  //       valueRepresents: "area",
-  //       dataPoints: [
-  //         { y: 3871, label: "Vehicle sessions", color: "#1b506e" },
-  //         { y: 2496, label: "Engaged configurations", color: "#0f3155" },
-  //         { y: 1398, label: "Digital leads", color: "#1a3c60" },
-  //         { y: 1118, label: "Showroom trafic", color: "#245282" },
-  //         { y: 800, label: "Retail commercial offer", color: "#3171b1" },
-  //         { y: 600, label: "Retail contracts", color: "#528bb8" },
-  //         { y: 400, label: "Digital sales", color: "#449ac0" },
-  //         { y: 200, label: "Transformation rate", color: "#56bdea" },
-  //       ],
-  //     },
-  //   ],
-  // });
+  const statisticCloseBtn = document.querySelector(
+    "div#close-statistic-container"
+  );
+  const statisticContainer = document.querySelector("div.statistic-box");
+
+  const sessionsCloseBtn = document.querySelector("div#close-sessions-btn");
+  const sessionsContainer = document.querySelector("div#sessions-container");
+
+  const startedCloseBtn = document.querySelector("div#close-started-btn");
+  const startedContainer = document.querySelector(
+    "div#started-configurations-container"
+  );
+
+  const completedCloseBtn = document.querySelector("div#close-completed-btn");
+  const completedContainer = document.querySelector(
+    "div#completed-configurations-container"
+  );
+
+  const leadsCloseBtn = document.querySelector("div#close-leads-btn");
+  const leadsContainer = document.querySelector("div#digital-leads-container");
+
+  const salesCloseBtn = document.querySelector("div#close-sales-btn");
+  const salesContainer = document.querySelector("div#digital-sales-container");
+
+  function closesContainer(containerId, buttonId) {
+    if (containerId && buttonId) {
+      buttonId.addEventListener("click", () => {
+        containerId.classList.toggle("disappearance");
+      });
+    }
+  }
+
+  closesContainer(filterContent, filterToggleBtn);
+  closesContainer(funnelContainer, funnelCloseBtn);
+  closesContainer(statisticContainer, statisticCloseBtn);
+  closesContainer(sessionsContainer, sessionsCloseBtn);
+  closesContainer(startedContainer, startedCloseBtn);
+  closesContainer(completedContainer, completedCloseBtn);
+  closesContainer(leadsContainer, leadsCloseBtn);
+  closesContainer(salesContainer, salesCloseBtn);
 
   // Первый график
   const firtChartBar = new CanvasJS.Chart("first-chart-bar", {
@@ -153,6 +133,75 @@ window.onload = function () {
   });
   firtChartBar.render();
   secondChartBar.render();
+
+  // Закоментировал воронки с CanvasJs
+
+  // Первая воронка
+  // const firstFunnel = new CanvasJS.Chart("first-funnel", {
+  //   animationEnabled: true,
+  //   animationDuration: 1500,
+  //   culture: "es",
+
+  //   title: {
+  //     text: "",
+  //   },
+  //   data: [
+  //     {
+  //       type: "funnel",
+  //       indexLabelPlacement: "inside",
+  //       indexLabelFontColor: "white",
+  //       indexLabelFontWeight: "900",
+  //       indexLabel: "{y}",
+  //       toolTipContent: "<b>{label}</b>: {y} <b>({percentage}%)</b>",
+  //       neckWidth: "65%",
+  //       neckHeight: 0,
+  //       valueRepresents: "area",
+  //       dataPoints: [
+  //         { y: 3871, label: "Vehicle sessions", color: "#1b506e" },
+  //         { y: 2496, label: "Engaged configurations", color: "#0f3155" },
+  //         { y: 1398, label: "Digital leads", color: "#1a3c60" },
+  //         { y: 1118, label: "Showroom trafic", color: "#245282" },
+  //         { y: 800, label: "Retail commercial offer", color: "#3171b1" },
+  //         { y: 600, label: "Retail contracts", color: "#528bb8" },
+  //         { y: 400, label: "Digital sales", color: "#449ac0" },
+  //         { y: 200, label: "Transformation rate", color: "#56bdea" },
+  //       ],
+  //     },
+  //   ],
+  // });
+
+  // Вторая воронка
+  // const secondFunnel = new CanvasJS.Chart("second-funnel", {
+  //   animationEnabled: true,
+  //   animationDuration: 1000,
+  //   culture: "es",
+  //   title: {
+  //     text: "",
+  //   },
+  //   data: [
+  //     {
+  //       type: "funnel",
+  //       indexLabelPlacement: "inside",
+  //       indexLabelFontColor: "white",
+  //       indexLabelFontWeight: "900",
+  //       indexLabel: "{y}",
+  //       toolTipContent: "<b>{label}</b>: {y} <b>({percentage}%)</b>",
+  //       neckWidth: "65%",
+  //       neckHeight: 0,
+  //       valueRepresents: "area",
+  //       dataPoints: [
+  //         { y: 3871, label: "Vehicle sessions", color: "#1b506e" },
+  //         { y: 2496, label: "Engaged configurations", color: "#0f3155" },
+  //         { y: 1398, label: "Digital leads", color: "#1a3c60" },
+  //         { y: 1118, label: "Showroom trafic", color: "#245282" },
+  //         { y: 800, label: "Retail commercial offer", color: "#3171b1" },
+  //         { y: 600, label: "Retail contracts", color: "#528bb8" },
+  //         { y: 400, label: "Digital sales", color: "#449ac0" },
+  //         { y: 200, label: "Transformation rate", color: "#56bdea" },
+  //       ],
+  //     },
+  //   ],
+  // });
 
   // calculatePercentageFirtsFunnel();
   // calculatePercentageSecondFunnel();
