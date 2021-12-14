@@ -34,22 +34,22 @@ window.onload = function () {
   const salesCloseBtn = document.querySelector("div#close-sales-btn");
   const salesContainer = document.querySelector("div#digital-sales-container");
 
-  function closesContainer(containerId, buttonId) {
+  function closesContainer(containerId, buttonId, className) {
     if (containerId && buttonId) {
       buttonId.addEventListener("click", () => {
-        containerId.classList.toggle("disappearance");
+        containerId.classList.toggle(className);
       });
     }
   }
 
-  closesContainer(filterContent, filterToggleBtn);
-  closesContainer(funnelContainer, funnelCloseBtn);
-  closesContainer(statisticContainer, statisticCloseBtn);
-  closesContainer(sessionsContainer, sessionsCloseBtn);
-  closesContainer(startedContainer, startedCloseBtn);
-  closesContainer(completedContainer, completedCloseBtn);
-  closesContainer(leadsContainer, leadsCloseBtn);
-  closesContainer(salesContainer, salesCloseBtn);
+  closesContainer(filterContent, filterToggleBtn, "collapse");
+  closesContainer(funnelContainer, funnelCloseBtn, "disappearance");
+  closesContainer(statisticContainer, statisticCloseBtn, "disappearance");
+  closesContainer(sessionsContainer, sessionsCloseBtn, "disappearance");
+  closesContainer(startedContainer, startedCloseBtn, "disappearance");
+  closesContainer(completedContainer, completedCloseBtn, "disappearance");
+  closesContainer(leadsContainer, leadsCloseBtn, "disappearance");
+  closesContainer(salesContainer, salesCloseBtn, "disappearance");
 
   // Первый график
   const firtChartBar = new CanvasJS.Chart("first-chart-bar", {
