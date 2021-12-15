@@ -605,6 +605,15 @@ table {
   border-collapse: collapse;
 }
 
+tbody tr td:first-child {
+  position: sticky;
+  width: 50px;
+  min-width: 50px;
+  max-width: 100px;
+  left: -10px;
+  background-color: #fff;
+}
+
 th,
 td {
   padding: 8px;
