@@ -596,6 +596,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .table-content {
   padding: 10px;
+  overflow-y: auto;
 }
 
 table {
