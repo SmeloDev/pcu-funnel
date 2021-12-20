@@ -600,7 +600,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 table {
-  font-size: 12px;
+  font-size: 10px;
   width: 100%;
   border-collapse: collapse;
 }
@@ -616,7 +616,7 @@ tbody tr td:first-child {
 
 th,
 td {
-  padding: 8px;
+  padding: 5px;
 }
 
 table thead tr {
