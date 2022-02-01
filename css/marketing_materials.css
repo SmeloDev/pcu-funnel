@@ -1,0 +1,280 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.42;
+}
+
+.marketing-materials-wrapper {
+  min-height: 100vh;
+
+  margin-left: 230px;
+  padding-top: 70px;
+  padding-bottom: 40px;
+
+  background-color: #ecf0f5;
+  z-index: 800;
+}
+
+.marketing-materials-section {
+  margin: 20px 20px 30px 20px;
+
+  background-color: #fff;
+}
+
+.marketing-materials-section .header {
+  padding: 12px 20px;
+  position: relative;
+  min-height: 50px;
+  background-color: #223464;
+  color: #fff;
+}
+
+.marketing-materials-section .header h3 {
+  font-size: 22px;
+}
+
+.marketing-materials-section .header .header-btn {
+  height: 35px;
+  width: 35px;
+  padding-top: 2px;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+
+  text-align: center;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  border: 2px solid #fff;
+  transform: translate(0, -50%);
+}
+
+.marketing-materials-section .content {
+  display: flex;
+  padding: 50px;
+  background-color: #fff;
+}
+
+.marketing-materials-section .content .description {
+  max-height: 506px;
+  max-width: 40%;
+  padding: 30px 20px;
+  margin-right: 40px;
+  border: 2px solid #a2aaad;
+  border-top: 5px solid #223464;
+}
+.marketing-materials-section .content .description > p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.marketing-materials-section .content .description ul,
+.marketing-materials-section .content .accordeon ul {
+  list-style: none;
+}
+.marketing-materials-section .content .description ul li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding-left: 70px;
+  margin-bottom: 5px;
+}
+.marketing-materials-section .content .description ul li .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  height: 44px;
+  width: 65px;
+  background-color: #223464;
+}
+.marketing-materials-section .content .description ul li p {
+  font-size: 18px;
+}
+.marketing-materials-section .content .accordeon {
+  width: 100%;
+}
+.marketing-materials-section .content .accordeon ul li.accordeon-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 30px 0;
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
+  color: #444444;
+  border-top: 2px solid #a2aaad;
+  /* border-bottom: 2px solid #a2aaad; */
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item.active {
+  color: #223464;
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item::after {
+  position: absolute;
+  right: 0;
+  content: "+";
+  color: #98a0b1;
+}
+
+.marketing-materials-section
+  .content
+  .accordeon
+  ul
+  li.accordeon-item.active::after {
+  content: "-";
+}
+.accordeon ul li.inner-container {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.2s ease-out, opacity 0.2s ease;
+}
+
+.marketing-materials-section
+  .content
+  .accordeon
+  ul
+  li.inner-container
+  .flex-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.accordeon ul li.inner-container .folder {
+  width: 250px;
+  display: block;
+  margin-right: 50px;
+  text-decoration: none;
+  color: #444444;
+  border: 2px solid #a2aaad;
+  /* max-height: 0; */
+}
+.accordeon ul li.inner-container .folder-icon {
+  padding: 20px;
+}
+.accordeon ul li.inner-container .folder-content {
+  padding: 20px;
+  background-color: #cccccc;
+}
+
+.accordeon ul li.inner-container .folder-content p {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.folder-content p::after {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #223464;
+  border-radius: 50%;
+  background-image: url("../data/right-arrow.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.folder-content span.nth-files {
+  margin-right: 50px;
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.accordeon ul li.inner-container .flex-container .access h5 {
+  position: relative;
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #223464;
+}
+
+.accordeon ul li.inner-container .flex-container .access h5::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 5px;
+  display: block;
+  width: 26px;
+  height: 26px;
+  background-image: url("../data/lock.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  background-color: #223464;
+}
+
+.accordeon ul li.inner-container .flex-container .access p {
+  font-size: 24px;
+}
+.accordeon ul li.inner-container .attention-container {
+  position: relative;
+  padding-left: 60px;
+}
+.accordeon ul li.inner-container p.attention::before {
+  position: absolute;
+  left: 0;
+  content: "!";
+  width: 53px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #223464;
+}
+
+@media screen and (max-width: 1800px) {
+  .marketing-materials-wrapper {
+    margin-left: 150px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .marketing-materials-wrapper {
+    margin-left: 0;
+  }
+  .marketing-materials-section .content {
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+  .marketing-materials-section .content .description {
+    max-height: max-content;
+    margin-right: 0;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+  .marketing-materials-section
+    .content
+    .accordeon
+    ul
+    li.inner-container
+    .flex-container {
+    flex-direction: column;
+  }
+  .accordeon ul li.inner-container .flex-container .access {
+    padding-left: 30px;
+    margin-top: 10px;
+  }
+}
