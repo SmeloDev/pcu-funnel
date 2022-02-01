@@ -1,4 +1,14 @@
 const acc = document.getElementsByClassName("accordeon-item");
+const openModalBtn = document.querySelector(
+  ".marketing-materials-section .header .header-btn"
+);
+const marketingMaterialsModalWrapper = document.querySelector(
+  ".marketing-materials-wrapper .modal-wrapper"
+);
+
+const marketingMaterialsModal = document.querySelector(
+  ".marketing-materials-wrapper .modal-wrapper .modal"
+);
 
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
@@ -18,3 +28,21 @@ for (let i = 0; i < acc.length; i++) {
     }
   });
 }
+
+if (openModalBtn) {
+  openModalBtn.addEventListener("click", () => {
+    marketingMaterialsModalWrapper.classList.add("open");
+    marketingMaterialsModal.classList.add("open");
+
+    // marketingMaterialsModalWrapper.style.display = "flex";
+  });
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target === marketingMaterialsModalWrapper) {
+    marketingMaterialsModalWrapper.classList.remove("open");
+    marketingMaterialsModal.classList.remove("open");
+
+    // marketingMaterialsModalWrapper.style.display = "none";
+  }
+});

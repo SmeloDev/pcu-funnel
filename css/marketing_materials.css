@@ -12,7 +12,6 @@ body {
 
 .marketing-materials-wrapper {
   min-height: 100vh;
-
   margin-left: 230px;
   padding-top: 70px;
   padding-bottom: 40px;
@@ -21,9 +20,44 @@ body {
   z-index: 800;
 }
 
+.marketing-materials-wrapper .modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0;
+  display: flex;
+
+  transition: opacity 150ms ease;
+}
+
+.marketing-materials-wrapper .modal-wrapper.open {
+  z-index: 999;
+  opacity: 1;
+}
+
+.marketing-materials-wrapper .modal-wrapper .modal {
+  width: 800px;
+  background-color: #fff;
+  padding: 20px;
+  font-size: 12px;
+  transform: translate(0, -100%);
+  transition: transform 300ms ease;
+}
+
+.marketing-materials-wrapper .modal-wrapper .modal.open {
+  transform: translate(0, 0);
+}
+
 .marketing-materials-section {
   margin: 20px 20px 30px 20px;
-
   background-color: #fff;
 }
 
@@ -36,7 +70,7 @@ body {
 }
 
 .marketing-materials-section .header h3 {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .marketing-materials-section .header .header-btn {
@@ -71,7 +105,7 @@ body {
   border-top: 5px solid #223464;
 }
 .marketing-materials-section .content .description > p {
-  font-size: 18px;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 .marketing-materials-section .content .description ul,
@@ -83,7 +117,7 @@ body {
   display: flex;
   align-items: center;
   height: 44px;
-  padding-left: 70px;
+  padding-left: 75px;
   margin-bottom: 5px;
 }
 .marketing-materials-section .content .description ul li .icon {
@@ -97,7 +131,7 @@ body {
   background-color: #223464;
 }
 .marketing-materials-section .content .description ul li p {
-  font-size: 18px;
+  font-size: 14px;
 }
 .marketing-materials-section .content .accordeon {
   width: 100%;
@@ -106,9 +140,9 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 30px 0;
+  padding: 20px 0;
   position: relative;
-  font-size: 30px;
+  font-size: 18px;
   font-weight: bold;
   color: #444444;
   border-top: 2px solid #a2aaad;
@@ -123,6 +157,7 @@ body {
   position: absolute;
   right: 0;
   content: "+";
+  font-size: 30px;
   color: #98a0b1;
 }
 
@@ -161,6 +196,13 @@ body {
 .accordeon ul li.inner-container .folder-icon {
   padding: 20px;
 }
+.accordeon ul li.inner-container .folder-icon img {
+  transition: transform 500ms ease;
+}
+.accordeon ul li.inner-container .folder-icon:hover img {
+  transform: scale(0.9);
+}
+
 .accordeon ul li.inner-container .folder-content {
   padding: 20px;
   background-color: #cccccc;
@@ -202,7 +244,7 @@ body {
 
 .accordeon ul li.inner-container .flex-container .access h5 {
   position: relative;
-  font-size: 28px;
+  font-size: 18px;
   text-transform: uppercase;
   color: #223464;
 }
@@ -211,7 +253,6 @@ body {
   content: "";
   position: absolute;
   left: -30px;
-  top: 5px;
   display: block;
   width: 26px;
   height: 26px;
@@ -223,23 +264,24 @@ body {
 }
 
 .accordeon ul li.inner-container .flex-container .access p {
-  font-size: 24px;
+  font-size: 16px;
 }
 .accordeon ul li.inner-container .attention-container {
   position: relative;
-  padding-left: 60px;
+  padding-left: 55px;
+  font-size: 14px;
 }
 .accordeon ul li.inner-container p.attention::before {
   position: absolute;
   left: 0;
   content: "!";
-  width: 53px;
-  height: 53px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: bold;
   color: #fff;
   background-color: #223464;
@@ -276,5 +318,9 @@ body {
   .accordeon ul li.inner-container .flex-container .access {
     padding-left: 30px;
     margin-top: 10px;
+  }
+
+  .accordeon ul li.inner-container .folder {
+    margin-bottom: 10px;
   }
 }
