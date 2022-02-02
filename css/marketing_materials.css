@@ -205,6 +205,9 @@ body {
   text-decoration: none;
   color: #444444;
   border: 1px solid #a2aaad;
+  transition: all 500ms ease;
+}
+.accordeon ul li.inner-container .folder:hover {
   box-shadow: 5px 5px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -226,9 +229,10 @@ body {
 .accordeon ul li.inner-container .folder-content p {
   margin-bottom: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .folder-content p::after {
