@@ -199,9 +199,10 @@ body {
 }
 
 .accordeon ul li.inner-container .folder {
-  width: 250px;
+  width: 220px;
   display: block;
   margin-right: 50px;
+  font-size: 12px;
   text-decoration: none;
   color: #999;
   border: 1px solid #a2aaad;
@@ -231,7 +232,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 700;
   color: #666;
 }
