@@ -111,7 +111,7 @@ body {
 }
 
 .marketing-materials-section .content .description {
-  max-height: 506px;
+  max-height: 460px;
   max-width: 40%;
   padding: 30px 20px;
   margin-right: 40px;
@@ -243,12 +243,13 @@ body {
   align-items: center;
   justify-content: center;
   margin-left: 5px;
-  width: 40px;
-  height: 40px;
+  width: 23px;
+  height: 23px;
 
   background-color: #223464;
   border-radius: 50%;
   background-image: url("../data/right-arrow.png");
+  background-size: 30%;
   background-position: center;
   background-repeat: no-repeat;
   transition: transform 500ms ease;
