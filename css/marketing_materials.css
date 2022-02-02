@@ -84,6 +84,7 @@ body {
 
 .marketing-materials-section .header h3 {
   font-size: 18px;
+  font-weight: 500;
 }
 
 .marketing-materials-section .header .header-btn {
@@ -114,11 +115,11 @@ body {
   max-width: 40%;
   padding: 30px 20px;
   margin-right: 40px;
-  border: 2px solid #a2aaad;
+  border: 1px solid #a2aaad;
   border-top: 5px solid #223464;
 }
 .marketing-materials-section .content .description > p {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 20px;
 }
 .marketing-materials-section .content .description ul,
@@ -144,7 +145,7 @@ body {
   background-color: #223464;
 }
 .marketing-materials-section .content .description ul li p {
-  font-size: 14px;
+  font-size: 12px;
 }
 .marketing-materials-section .content .accordeon {
   width: 100%;
@@ -158,8 +159,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   color: #444444;
-  border-top: 2px solid #a2aaad;
-  /* border-bottom: 2px solid #a2aaad; */
+  border-top: 1px solid #a2aaad;
 }
 
 .marketing-materials-section .content .accordeon ul li.accordeon-item.active {
@@ -184,6 +184,7 @@ body {
 .accordeon ul li.inner-container {
   max-height: 0;
   opacity: 0;
+  pointer-events: none;
   transition: max-height 0.2s ease-out, opacity 0.2s ease;
 }
 
@@ -203,16 +204,17 @@ body {
   margin-right: 50px;
   text-decoration: none;
   color: #444444;
-  border: 2px solid #a2aaad;
-  /* max-height: 0; */
+  border: 1px solid #a2aaad;
+  box-shadow: 5px 5px 6px 1px rgba(0, 0, 0, 0.2);
 }
+
 .accordeon ul li.inner-container .folder-icon {
   padding: 20px;
 }
 .accordeon ul li.inner-container .folder-icon img {
   transition: transform 500ms ease;
 }
-.accordeon ul li.inner-container .folder-icon:hover img {
+.accordeon ul li.inner-container .folder:hover img {
   transform: scale(0.9);
 }
 
@@ -242,10 +244,15 @@ body {
   background-image: url("../data/right-arrow.png");
   background-position: center;
   background-repeat: no-repeat;
+  transition: transform 500ms ease;
+}
+.accordeon ul li.inner-container .folder:hover .folder-content p::after {
+  /* transform: translate(10px, 0); */
+  transform: rotateZ(360deg);
 }
 
 .folder-content span.nth-files {
-  margin-right: 50px;
+  margin-right: 75px;
 }
 
 .marketing-materials-section .content .accordeon ul li.accordeon-item .icon {
