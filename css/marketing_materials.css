@@ -10,6 +10,17 @@ body {
   line-height: 1.42;
 }
 
+@keyframes slideDown {
+  0% {
+    transform: translate(-100%, 0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
 .marketing-materials-wrapper {
   min-height: 100vh;
   margin-left: 230px;
@@ -59,6 +70,8 @@ body {
 .marketing-materials-section {
   margin: 20px 20px 30px 20px;
   background-color: #fff;
+  animation: slideDown 1s ease 0.5s normal forwards;
+  transform-origin: top;
 }
 
 .marketing-materials-section .header {
