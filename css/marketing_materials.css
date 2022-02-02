@@ -203,7 +203,7 @@ body {
   display: block;
   margin-right: 50px;
   text-decoration: none;
-  color: #444444;
+  color: #999;
   border: 1px solid #a2aaad;
   transition: all 500ms ease;
 }
@@ -223,7 +223,7 @@ body {
 
 .accordeon ul li.inner-container .folder-content {
   padding: 20px;
-  background-color: #cccccc;
+  background-color: #f4f4f4;
 }
 
 .accordeon ul li.inner-container .folder-content p {
@@ -233,6 +233,7 @@ body {
   align-items: center;
   font-size: 18px;
   font-weight: 700;
+  color: #666;
 }
 
 .folder-content p::after {
@@ -243,6 +244,7 @@ body {
   margin-left: 5px;
   width: 40px;
   height: 40px;
+
   background-color: #223464;
   border-radius: 50%;
   background-image: url("../data/right-arrow.png");
