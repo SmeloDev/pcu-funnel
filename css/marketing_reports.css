@@ -40,22 +40,27 @@ body {
 }
 
 .filter-header {
+  padding: 6px 20px;
   position: relative;
-  min-height: 50px;
+
   background-color: #223464;
+}
+.filter-header h4 {
+  margin: 0;
+  color: #fff;
 }
 
 .filter-header .filter-toggle-btn {
-  height: 35px;
-  width: 35px;
-  padding-top: 2px;
+  height: 23px;
+  width: 23px;
+
   position: absolute;
   top: 50%;
   right: 25px;
 
   text-align: center;
   cursor: pointer;
-
+  font-size: 14px;
   color: #fff;
   font-weight: 900;
   border: 2px solid #fff;
@@ -83,7 +88,6 @@ body {
 .filter-content form {
   display: flex;
   flex-wrap: wrap;
-
   font-size: 12px;
 }
 
@@ -196,10 +200,45 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: 50%;
   right: 15px;
   transform: translate(0, -50%);
+  pointer-events: none;
 
   font-size: 20px;
 }
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+.radio-label {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
 
+.radio-label input[type="radio"] {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  margin: 0;
+}
+.radio-label input[type="radio"]:checked ~ label {
+  color: #fff;
+  background-color: #223464;
+}
+
+.radio-label label {
+  margin-right: 5px;
+  padding: 10px;
+  min-width: 65px;
+  border: 2px solid #223464;
+
+  color: #223464;
+  transition: all 500ms ease;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* .radio-label:last-child label {
+  border-right: 2px solid #223464;
+} */
 @media screen and (max-width: 700px) {
   .filter-content label {
     width: 100%;

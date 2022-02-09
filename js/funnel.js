@@ -7,6 +7,19 @@ window.onload = function () {
   const filterToggleBtn = document.querySelector("div.filter-toggle-btn");
   const filterContent = document.querySelector("div.filter-content");
 
+  const filterAnalyticsToggleBtn = document.querySelector(
+    "div.filter-toggle-btn.analytics"
+  );
+  const filterAnalyticsContent = document.querySelector(
+    "div.filter-content.analytics"
+  );
+  const filterBudgetToggleBtn = document.querySelector(
+    "div.filter-toggle-btn.budget"
+  );
+  const filterBudgetContent = document.querySelector(
+    "div.filter-content.budget"
+  );
+
   const funnelCloseBtn = document.querySelector("div#close-funnel-container");
   const funnelContainer = document.querySelector("div.funnel-box");
 
@@ -34,6 +47,9 @@ window.onload = function () {
   const salesCloseBtn = document.querySelector("div#close-sales-btn");
   const salesContainer = document.querySelector("div#digital-sales-container");
 
+  const budgetCloseBtn = document.querySelector("div#budget-sales-btn");
+  const budgetContainer = document.querySelector("div#budget-sales-container");
+
   function closesContainer(containerId, buttonId, className) {
     if (containerId && buttonId) {
       buttonId.addEventListener("click", () => {
@@ -43,6 +59,8 @@ window.onload = function () {
   }
 
   closesContainer(filterContent, filterToggleBtn, "collapse");
+  closesContainer(filterAnalyticsContent, filterAnalyticsToggleBtn, "collapse");
+  closesContainer(filterBudgetContent, filterBudgetToggleBtn, "collapse");
   closesContainer(funnelContainer, funnelCloseBtn, "disappearance");
   closesContainer(statisticContainer, statisticCloseBtn, "disappearance");
   closesContainer(sessionsContainer, sessionsCloseBtn, "disappearance");
@@ -50,6 +68,7 @@ window.onload = function () {
   closesContainer(completedContainer, completedCloseBtn, "disappearance");
   closesContainer(leadsContainer, leadsCloseBtn, "disappearance");
   closesContainer(salesContainer, salesCloseBtn, "disappearance");
+  closesContainer(budgetContainer, budgetCloseBtn, "disappearance");
 
   // Первый график
   const firtChartBar = new CanvasJS.Chart("first-chart-bar", {
