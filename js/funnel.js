@@ -80,6 +80,7 @@ window.onload = function () {
       lineColor: "white",
       labelFontColor: "white",
       labelPlacement: "inside",
+      reversed: true,
 
       tickColor: "white",
     },
@@ -93,9 +94,9 @@ window.onload = function () {
     data: [
       {
         type: "bar",
-        indexLabelPlacement: "inside",
+        indexLabelPlacement: "outside",
         indexLabel: "{y} UAH",
-        indexLabelFontColor: "white",
+        indexLabelFontColor: "black",
         indexLabelFontWeight: "900",
         indexLabelOrientation: "horizontal",
         toolTipContent: "{y} UAH",
@@ -121,6 +122,7 @@ window.onload = function () {
       lineColor: "white",
       labelFontColor: "white",
       labelPlacement: "inside",
+      reversed: true,
 
       tickColor: "white",
     },
@@ -133,9 +135,9 @@ window.onload = function () {
     data: [
       {
         type: "bar",
-        indexLabelPlacement: "inside",
+        indexLabelPlacement: "outside",
         indexLabel: "{y} UAH",
-        indexLabelFontColor: "white",
+        indexLabelFontColor: "black",
         indexLabelFontWeight: "900",
         indexLabelOrientation: "horizontal",
         toolTipContent: "{y} UAH",
