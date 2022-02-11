@@ -11,6 +11,7 @@ const filterBudgetToggleBtn = document.querySelector(
   "div.filter-toggle-btn.budget"
 );
 const filterBudgetContent = document.querySelector("div.filter-content.budget");
+const budgetTable = document.querySelector("#budget-sales-container");
 
 const showMoreBtn = document.querySelector(".table-section #show_more_btn");
 console.log(showMoreBtn);
@@ -29,6 +30,7 @@ function closesContainer(containerId, buttonId, className) {
 closesContainer(filterContent, filterToggleBtn, "collapse");
 closesContainer(filterAnalyticsContent, filterAnalyticsToggleBtn, "collapse");
 closesContainer(filterBudgetContent, filterBudgetToggleBtn, "collapse");
+closesContainer(budgetTable, filterBudgetToggleBtn, "collapse");
 
 if (showMoreBtn) {
   showMoreBtn.addEventListener("click", () => {

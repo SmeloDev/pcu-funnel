@@ -104,7 +104,7 @@ button {
 }
 
 .filter-content label:not(:last-child) {
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 700px) {
@@ -125,7 +125,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
+  height: 34px;
   min-width: 42px;
   position: relative;
 
@@ -140,7 +140,7 @@ button {
 
 .filter-content label select,
 .filter-content label input {
-  height: 36px;
+  height: 34px;
   padding: 0 20px 0 8px;
 
   border: 1px solid #223464;
@@ -179,7 +179,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .filter-content label select {
   display: block;
-  min-width: 180px;
+  min-width: 100px;
   width: 100%;
   position: relative;
 
@@ -199,7 +199,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: 20px;
 
   padding: 10px 12px;
-  height: 36px;
+  height: 34px;
   font-size: 12px;
   outline: none;
   border: none;
@@ -473,7 +473,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   animation: count 1.5s ease 1.5s normal forwards;
 }
-
+#first-funnel .trapezoid .funnel-percent {
+  position: absolute;
+  top: -30px;
+  left: -35px;
+  color: #000;
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0;
+  animation: count 1.5s ease 1.5s normal forwards;
+}
+#second-funnel .trapezoid .funnel-percent {
+  position: absolute;
+  top: -30px;
+  right: -35px;
+  color: #000;
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0;
+  animation: count 1.5s ease 1.5s normal forwards;
+}
 .trap_1 {
   width: 100%;
   border-top: 40px solid #1b506e;
@@ -624,10 +643,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .bar-list li {
@@ -644,7 +662,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .bar-list.left-bar .bar-wrapper {
   margin-left: auto;
-  background-color: #1b506e;
+  background-color: #528bb8;
 }
 .bar-list.right-bar {
   padding-left: 0;
@@ -742,6 +760,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* --- Стили секции таблиц --- */
 
+#budget-sales-container {
+  animation: funnel 1.5s ease normal forwards;
+  transform-origin: top center;
+}
+
 .table-section {
   padding: 0 20px;
   margin-bottom: 30px;
@@ -799,6 +822,10 @@ table thead tr {
 
 table tbody tr {
   border-bottom: 1px solid #ddd;
+}
+table tbody tr:hover {
+  border-top: 1px solid #ff800d;
+  border-bottom: 1px solid #ff800d;
 }
 
 table tbody tr:nth-of-type(2n + 1) {
