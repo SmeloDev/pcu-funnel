@@ -2,9 +2,11 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+button {
   margin: 0;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial",
+    sans-serif;
   line-height: 1.42;
 }
 
@@ -34,7 +36,7 @@ body {
 /* --- Cтили секции фильтрации ---  */
 
 .filter-section {
-  margin: 20px 20px 30px 20px;
+  margin: 20px 20px 5px 20px;
 
   background-color: #fff;
 }
@@ -87,6 +89,7 @@ body {
 
 .filter-content form {
   display: flex;
+  align-items: flex-end;
   flex-wrap: wrap;
   font-size: 12px;
 }
@@ -154,7 +157,8 @@ input {
   position: relative;
 }
 
-.icon[tooltip]:hover:after {
+.icon[tooltip]:hover:after,
+.icon[tooltip]:focus:after {
   content: attr(tooltip);
   position: absolute;
   top: -30px;
@@ -187,6 +191,47 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .select {
   position: relative;
+}
+
+.export-btn,
+#show_more_btn {
+  display: block;
+  margin-top: 20px;
+
+  padding: 10px 12px;
+  height: 36px;
+  font-size: 12px;
+  outline: none;
+  border: none;
+
+  font-weight: 400;
+  line-height: 1.43;
+  text-align: center;
+  color: #fff;
+  background-color: #223464;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+#show_more_btn {
+  margin: 0;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+.export-btn i {
+  margin-right: 8px;
+
+  transition: all 2s ease;
+}
+.export-btn:hover,
+.export-btn:focus,
+#show_more_btn:hover,
+#show_more_btn:focus {
+  opacity: 0.5;
+}
+
+.export-btn:hover i,
+.export-btn:focus i {
+  transform: rotate(360deg);
 }
 
 @media screen and (max-width: 700px) {
@@ -235,6 +280,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transition: all 500ms ease;
   text-align: center;
   text-transform: uppercase;
+  cursor: pointer;
 }
 /* .radio-label:last-child label {
   border-right: 2px solid #223464;
@@ -246,7 +292,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .marketing-content {
-  padding: 0 40px;
+  padding: 0 20px;
   margin-bottom: 30px;
   display: flex;
 }
@@ -299,6 +345,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   background-color: #f6f7f7;
 }
+
+#digital-leads-additional {
+  display: none;
+}
+#digital-leads-additional .box-header {
+  background-color: rgba(34, 52, 100, 0.5);
+}
+#digital-leads-additional.show {
+  display: block;
+}
+
+/* #digital-leads-additional table tbody tr:nth-of-type(2n + 1) {
+  background-color: rgba(34, 52, 100, 0.5);
+} */
 
 .box-header ul {
   width: 100%;
@@ -364,6 +424,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   overflow: hidden;
 }
 
+.funnel-box .box-content {
+  padding: 0 30px;
+}
+
 @media screen and (max-width: 768px) {
   .funnel-box .box-content {
     flex-direction: column;
@@ -374,7 +438,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* Cтили блока воронок */
 
-#first-funnel {
+#first-funnel,
+#second-funnel {
   width: 35%;
   height: 430px;
   animation: funnel 1.5s ease 0.5s normal forwards;
@@ -438,10 +503,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .trap_7 {
   width: 70%;
-  border-top: 40px solid #449ac0;
+  border-top: 40px solid #3171b1;
 }
 .trap_8 {
   width: 65%;
+  border-top: 40px solid #449ac0;
+}
+
+.trap_9 {
+  width: 60%;
   border-top: 40px solid #56bdea;
 }
 
@@ -449,13 +519,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #difference-of-values {
   width: 30%;
-}
-
-#second-funnel {
-  width: 35%;
-  height: 430px;
-  animation: funnel 1.5s ease 0.5s normal forwards;
-  transform-origin: top center;
 }
 
 .animation-emergence {
@@ -480,7 +543,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   flex-direction: column;
   justify-content: space-between;
 
-  font-family: sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 400;
@@ -490,7 +552,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   min-height: 350px;
 }
 
-#difference-of-values .difference-list li:first-child {
+.funnel-box #difference-of-values .difference-list li:first-child {
   margin-top: 10px;
 }
 
@@ -510,9 +572,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .funnel-box .difference-percentage {
   position: relative;
-  width: 70px;
+  width: 60px;
   height: 23px;
-  background-color: #3a9b13;
+  background-color: #05af50;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -527,16 +589,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
   transform: scale(1.7);
   right: -10px;
-  color: #3a9b13;
+  font-family: sans-serif;
+  color: #05af50;
 }
 
 .funnel-box .difference-percentage.negative-persentage {
-  background-color: #f44d3e;
+  background-color: #ff0000;
 }
 
 .difference-percentage.negative-persentage::after {
   content: "↓";
-  color: #f44d3e;
+  color: #ff0000;
 }
 
 .canvasjs-chart-credit {
@@ -551,6 +614,70 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #second-chart-bar {
   width: 40%;
+}
+
+.bar-list {
+  padding: 25px 10px;
+  margin: 0;
+  list-style-type: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.bar-list li {
+  margin: 5px 0;
+  position: relative;
+  min-height: 50px;
+  width: 100%;
+}
+.bar-list li .bar-wrapper {
+  height: 100%;
+}
+.bar-list.left-bar {
+  padding-right: 0;
+}
+.bar-list.left-bar .bar-wrapper {
+  margin-left: auto;
+  background-color: #1b506e;
+}
+.bar-list.right-bar {
+  padding-left: 0;
+}
+.bar-list.right-bar .bar-wrapper {
+  background-color: #56bdea;
+}
+.bar-list li:nth-child(1) .bar-wrapper {
+  width: 100%;
+}
+.bar-list li:nth-child(2) .bar-wrapper {
+  width: 90%;
+}
+.bar-list li:nth-child(3) .bar-wrapper {
+  width: 80%;
+}
+.bar-list li:nth-child(4) .bar-wrapper {
+  width: 70%;
+}
+.bar-list li:nth-child(5) .bar-wrapper {
+  width: 60%;
+}
+.bar-list.left-bar li span {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-20px, -50%);
+}
+.bar-list.right-bar li span {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(20px, -50%);
 }
 
 /* Cтили блока процентного соотношения периодов */
@@ -575,12 +702,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   justify-content: center;
 
-  color: #3a9b13;
+  color: #05af50;
   font-size: 12px;
   font-weight: 700;
 }
 .statistic-box .difference-percentage.negative-persentage {
-  color: #f44d3e;
+  color: #ff0000;
 }
 
 .box-date ul {
@@ -616,18 +743,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* --- Стили секции таблиц --- */
 
 .table-section {
-  padding: 0 40px;
+  padding: 0 20px;
   margin-bottom: 30px;
 }
 
 .table {
   margin-bottom: 30px;
   background-color: #fff;
-  border-top: 3px solid #3171b1;
 }
 
 .table .box-header {
   justify-content: center;
+  border-top: 3px solid #3171b1;
 }
 
 .table .box-header .table-heading {
@@ -637,6 +764,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .table-content {
   padding: 10px;
   overflow-y: auto;
+  text-align: center;
 }
 
 table {

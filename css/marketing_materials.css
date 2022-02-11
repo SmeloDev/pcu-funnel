@@ -208,7 +208,8 @@ body {
   border: 1px solid #a2aaad;
   transition: all 500ms ease;
 }
-.accordeon ul li.inner-container .folder:hover {
+.accordeon ul li.inner-container .folder:hover,
+.accordeon ul li.inner-container .folder:focus {
   box-shadow: 5px 5px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -218,7 +219,8 @@ body {
 .accordeon ul li.inner-container .folder-icon img {
   transition: transform 500ms ease;
 }
-.accordeon ul li.inner-container .folder:hover img {
+.accordeon ul li.inner-container .folder:hover img,
+.accordeon ul li.inner-container .folder:focus img {
   transform: scale(0.9);
 }
 
@@ -254,7 +256,8 @@ body {
   background-repeat: no-repeat;
   transition: transform 500ms ease;
 }
-.accordeon ul li.inner-container .folder:hover .folder-content p::after {
+.accordeon ul li.inner-container .folder:hover .folder-content p::after,
+.accordeon ul li.inner-container .folder:focus .folder-content p::after {
   /* transform: translate(10px, 0); */
   transform: rotateZ(360deg);
 }
