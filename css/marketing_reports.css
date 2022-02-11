@@ -348,6 +348,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #digital-leads-additional {
   display: none;
+  animation: funnel 1.5s ease normal forwards;
+  transform-origin: top center;
 }
 #digital-leads-additional .box-header {
   background-color: rgba(34, 52, 100, 0.5);
