@@ -313,6 +313,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   background-color: #fff;
   border-top: 3px solid #223464;
+  animation: funnel 1.5s ease normal forwards;
+  transform-origin: top center;
 }
 
 @media screen and (max-width: 1200px) {
@@ -329,6 +331,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   background-color: #fff;
   border-top: 3px solid #56bdea;
+  animation: funnel 1.5s ease normal forwards;
+  transform-origin: top center;
 }
 @media screen and (max-width: 1200px) {
   .marketing-content .statistic-box {
@@ -444,8 +448,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #second-funnel {
   width: 35%;
   height: 430px;
-  animation: funnel 1.5s ease 0.5s normal forwards;
-  transform-origin: top center;
 }
 
 .trapezoid {

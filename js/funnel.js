@@ -1,5 +1,6 @@
 const filterToggleBtn = document.querySelector("div.filter-toggle-btn");
 const filterContent = document.querySelector("div.filter-content");
+const marketingContainer = document.querySelector("section.marketing-content");
 
 const filterAnalyticsToggleBtn = document.querySelector(
   "div.filter-toggle-btn.analytics"
@@ -7,6 +8,8 @@ const filterAnalyticsToggleBtn = document.querySelector(
 const filterAnalyticsContent = document.querySelector(
   "div.filter-content.analytics"
 );
+const tableSection = document.querySelector("section.table-section");
+
 const filterBudgetToggleBtn = document.querySelector(
   "div.filter-toggle-btn.budget"
 );
@@ -28,7 +31,11 @@ function closesContainer(containerId, buttonId, className) {
 }
 
 closesContainer(filterContent, filterToggleBtn, "collapse");
+closesContainer(marketingContainer, filterToggleBtn, "collapse");
+
 closesContainer(filterAnalyticsContent, filterAnalyticsToggleBtn, "collapse");
+closesContainer(tableSection, filterAnalyticsToggleBtn, "collapse");
+
 closesContainer(filterBudgetContent, filterBudgetToggleBtn, "collapse");
 closesContainer(budgetTable, filterBudgetToggleBtn, "collapse");
 
