@@ -88,6 +88,7 @@ button {
 }
 
 .filter-content form {
+  width: 100%;
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
@@ -197,6 +198,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #show_more_btn {
   display: block;
   margin-top: 20px;
+  margin-left: auto;
 
   padding: 10px 12px;
   height: 34px;
@@ -219,7 +221,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .export-btn i {
   margin-right: 8px;
-
+  font-size: 14px;
   transition: all 2s ease;
 }
 .export-btn:hover,
@@ -227,11 +229,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #show_more_btn:hover,
 #show_more_btn:focus {
   opacity: 0.5;
-}
-
-.export-btn:hover i,
-.export-btn:focus i {
-  transform: rotate(360deg);
 }
 
 @media screen and (max-width: 700px) {
@@ -349,15 +346,37 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   background-color: #f6f7f7;
 }
+#sessions-container,
+#started-configurations-container,
+#completed-configurations-container,
+#digital-leads-container,
+#digital-sales-additional {
+  background-color: #223464;
+}
+
+#sessions-container .box-header,
+#started-configurations-container .box-header,
+#completed-configurations-container .box-header,
+#digital-leads-container .box-header,
+#digital-sales-additional .box-header {
+  border-bottom: 2px solid #fff;
+  background-color: #223464;
+}
+
+#sessions-container .table-heading,
+#started-configurations-container .table-heading,
+#completed-configurations-container .table-heading,
+#digital-leads-container .table-heading,
+#digital-sales-additional .table-heading {
+  color: #fff;
+}
 
 #digital-leads-additional {
   display: none;
   animation: funnel 1.5s ease normal forwards;
   transform-origin: top center;
 }
-#digital-leads-additional .box-header {
-  background-color: rgba(34, 52, 100, 0.5);
-}
+
 #digital-leads-additional.show {
   display: block;
 }
