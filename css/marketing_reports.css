@@ -215,9 +215,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transition: all 0.5s ease;
 }
 #show_more_btn {
-  margin: 0;
-  margin-left: auto;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
 }
 .export-btn i {
   margin-right: 8px;
@@ -346,46 +344,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   background-color: #f6f7f7;
 }
-#sessions-container,
-#started-configurations-container,
-#completed-configurations-container,
-#digital-leads-container,
-#digital-sales-additional {
-  background-color: #223464;
-}
-
-#sessions-container .box-header,
-#started-configurations-container .box-header,
-#completed-configurations-container .box-header,
-#digital-leads-container .box-header,
-#digital-sales-additional .box-header {
-  border-bottom: 2px solid #fff;
-  background-color: #223464;
-}
-
-#sessions-container .table-heading,
-#started-configurations-container .table-heading,
-#completed-configurations-container .table-heading,
-#digital-leads-container .table-heading,
-#digital-sales-additional .table-heading {
-  color: #fff;
-}
 
 #digital-leads-additional {
   display: none;
   animation: funnel 1.5s ease normal forwards;
   transform-origin: top center;
+  background-color: #223464;
+}
+
+#digital-leads-additional .box-header {
+  background-color: #223464;
+  border-bottom: 2px solid #fff;
+}
+#digital-leads-additional .table-heading {
+  color: #fff;
 }
 
 #digital-leads-additional.show {
   display: block;
 }
 
-tr.delimiter td {
-  background-color: #223464;
-}
-tr.delimiter td:first-child {
-  background-color: #223464;
+table tbody tr.delimiter td {
+  background-color: rgba(34, 52, 100, 0.4);
 }
 
 /* #digital-leads-additional table tbody tr:nth-of-type(2n + 1) {
@@ -503,26 +483,53 @@ tr.delimiter td:first-child {
   opacity: 0;
   animation: count 1.5s ease 1.5s normal forwards;
 }
-#first-funnel .trapezoid .funnel-percent {
-  position: absolute;
-  top: -30px;
-  left: -35px;
-  color: #000;
-  font-weight: 900;
-  font-size: 12px;
-  opacity: 0;
-  animation: count 1.5s ease 1.5s normal forwards;
-}
+#first-funnel .trapezoid .funnel-percent,
 #second-funnel .trapezoid .funnel-percent {
   position: absolute;
   top: -30px;
-  right: -35px;
   color: #000;
   font-weight: 900;
   font-size: 12px;
   opacity: 0;
   animation: count 1.5s ease 1.5s normal forwards;
 }
+#first-funnel .trapezoid .funnel-percent {
+  left: -35px;
+}
+#second-funnel .trapezoid .funnel-percent {
+  right: -35px;
+}
+#first-funnel .trapezoid .funnel-percent::before,
+#second-funnel .trapezoid .funnel-percent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  transform: translate(0, -100%);
+  display: block;
+  width: 50px;
+  border-radius: 20px;
+}
+#first-funnel .trapezoid .funnel-percent.first::before {
+  left: -5px;
+  height: 70px;
+  border-left: 3px solid #000;
+}
+#first-funnel .trapezoid .funnel-percent.second::before {
+  left: 0;
+  height: 30px;
+  border-left: 3px solid #000;
+}
+#second-funnel .trapezoid .funnel-percent.first::before {
+  right: -5px;
+  height: 70px;
+  border-right: 3px solid #000;
+}
+#second-funnel .trapezoid .funnel-percent.second::before {
+  right: 0;
+  height: 30px;
+  border-right: 3px solid #000;
+}
+
 .trap_1 {
   width: 100%;
   border-top: 40px solid #1b506e;
@@ -849,7 +856,7 @@ table thead tr {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   font-weight: 700;
-  text-align: left;
+  text-align: center;
 }
 
 table tbody tr {
@@ -860,15 +867,15 @@ table tbody tr:hover {
   border-bottom: 1px solid #ff800d;
 }
 
-table tbody tr:nth-of-type(2n + 1) {
+table tbody tr {
   background-color: #f9f9f9;
 }
 
-table tbody tr:nth-of-type(2n) {
-  background: #f4f4f4;
+table tbody tr.total {
+  background-color: rgb(180, 180, 180);
 }
 
-table tbody tr.total {
+tbody tr td:last-child {
   background-color: rgb(180, 180, 180);
 }
 
