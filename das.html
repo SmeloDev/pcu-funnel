@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link href="./css/das.css" rel="stylesheet">
+    <link href="./font-awesome/css/font-awesome.min.css" rel="stylesheet">
+   
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+</head>
+<body>
+
+<div class="content-wrapper">
+    <section class="quality-section">
+        <div class="section-heading">
+            <h4>Quality Bonus Overview</h4>
+            <div class="button-container">
+                <div class="button">?</div>
+                <div class="button">...</div>
+                <div class="button expand_section-btn">&#8212</div>
+            </div>
+        </div>
+
+        <div class="section-content animation-emergence">
+            <div class="selling-table table">
+                <div class="box-header">
+                    <div class="table-heading">
+                        <i class="fa fa-file-o" aria-hidden="true"></i>
+                        Продаж
+                    </div>
+                    <button type="button" class="selling_table-btn">-</button>
+                </div>
+
+                <div class="table-content">
+                    <div class="filter_column_btn">
+                        <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M13.9859 2.42367C10.0077 1.97906 5.99236 1.97906 2.01419 2.42367C1.74502 2.45376 1.6154 2.76941 1.78574 2.97998L5.30276 7.32753C6.56266 8.88494 7.25002 10.8275 7.25002 12.8307V15.7199L8.75002 16.8199V12.8307C8.75002 10.8275 9.43738 8.88494 10.6973 7.32753L14.2143 2.97998C14.3846 2.76941 14.255 2.45376 13.9859 2.42367ZM1.84758 0.932956C5.93648 0.475961 10.0636 0.475961 14.1525 0.932956C15.5994 1.09467 16.2962 2.79146 15.3805 3.92339L11.8635 8.27093C10.8195 9.56136 10.25 11.1709 10.25 12.8307V18.3C10.25 18.5826 10.0911 18.8413 9.83903 18.969C9.58692 19.0968 9.28441 19.0719 9.0565 18.9048L6.0565 16.7048C5.86384 16.5635 5.75002 16.3389 5.75002 16.1V12.8307C5.75002 11.1709 5.18049 9.56137 4.13658 8.27094L0.619559 3.92339C-0.296131 2.79146 0.400653 1.09467 1.84758 0.932956Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="checkbox-container">
+                        <label>
+                            <input type="checkbox" class="selling toggle-vis" data-column="2,3,4,5,6,7,8,9,10" checked>
+                            Focus
+                        </label>
+                        <label>
+                            <input type="checkbox" class="selling toggle-vis" data-column="11,12,13,14,15,16,17,18,19,20" checked>
+                            Таємний покупець
+                        </label>
+                        <label>
+                            <input type="checkbox" class="selling toggle-vis" data-column="21,22,23" checked>
+                            Скарги
+                        </label>
+                        <label>
+                            <input type="checkbox" class="selling toggle-vis" data-column="24,25,26,27" checked>
+                            Бонус
+                        </label>
+                    </div>
+                    <table id="selling_container" class="display" style="width:100%">
+                        <thead>
+                            <tr class="tab">
+                                <th></th>
+                                <th></th>
+                                <th colspan="9" class="selling toggle-vis" data-column="2,3,4,5,6,7,8,9,10">
+                                    <div>
+                                        <div class="icon">
+                                            <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.6494 9.39948C9.95906 9.39948 9.39941 9.95912 9.39941 10.6495C9.39941 11.3398 9.95906 11.8995 10.6494 11.8995C11.3398 11.8995 11.8994 11.3398 11.8994 10.6495C11.8994 9.95912 11.3398 9.39948 10.6494 9.39948ZM7.89941 10.6495C7.89941 9.13069 9.13063 7.89948 10.6494 7.89948C12.1682 7.89948 13.3994 9.13069 13.3994 10.6495C13.3994 12.1683 12.1682 13.3995 10.6494 13.3995C9.13063 13.3995 7.89941 12.1683 7.89941 10.6495Z"
+                                                    fill="white" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.6494 5.39948C9.61106 5.39948 8.59603 5.70738 7.73267 6.28426C6.86932 6.86114 6.19641 7.68108 5.79905 8.64039C5.40169 9.5997 5.29772 10.6553 5.50029 11.6737C5.70287 12.6921 6.20288 13.6276 6.93711 14.3618C7.23 14.6547 7.23 15.1296 6.93711 15.4224C6.64421 15.7153 6.16934 15.7153 5.87645 15.4224C4.93244 14.4784 4.28957 13.2757 4.02912 11.9663C3.76867 10.657 3.90234 9.29976 4.41323 8.06636C4.92412 6.83296 5.78929 5.77876 6.89932 5.03706C8.00935 4.29536 9.31439 3.89948 10.6494 3.89948C11.9844 3.89948 13.2895 4.29536 14.3995 5.03706C15.5095 5.77876 16.3747 6.83296 16.8856 8.06636C17.3965 9.29976 17.5302 10.657 17.2697 11.9663C17.0093 13.2757 16.3664 14.4784 15.4224 15.4224C15.1295 15.7153 14.6546 15.7153 14.3617 15.4224C14.0688 15.1296 14.0688 14.6547 14.3617 14.3618C15.096 13.6276 15.596 12.6921 15.7985 11.6737C16.0011 10.6553 15.8971 9.5997 15.4998 8.64039C15.1024 7.68108 14.4295 6.86114 13.5662 6.28426C12.7028 5.70738 11.6878 5.39948 10.6494 5.39948Z"
+                                                    fill="white" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.6495 1.5C8.83989 1.5 7.07093 2.03661 5.56631 3.04197C4.06168 4.04733 2.88897 5.47628 2.19647 7.14813C1.50396 8.81998 1.32278 10.6596 1.67581 12.4345C2.02884 14.2093 2.90025 15.8396 4.17983 17.1192C4.47272 17.412 4.47272 17.8869 4.17983 18.1798C3.88693 18.4727 3.41206 18.4727 3.11917 18.1798C1.62981 16.6905 0.615544 14.7929 0.204631 12.7271C-0.20628 10.6613 0.00461334 8.52005 0.810648 6.57411C1.61668 4.62817 2.98166 2.96494 4.73295 1.79476C6.48425 0.624582 8.54322 1.78814e-07 10.6495 0C12.7558 -1.78814e-07 14.8147 0.624582 16.566 1.79476C18.3173 2.96494 19.6823 4.62817 20.4883 6.57411C21.2944 8.52005 21.5053 10.6613 21.0944 12.7271C20.6834 14.7929 19.6692 16.6905 18.1798 18.1798C17.8869 18.4727 17.4121 18.4727 17.1192 18.1798C16.8263 17.8869 16.8263 17.412 17.1192 17.1192C18.3987 15.8396 19.2701 14.2093 19.6232 12.4345C19.9762 10.6596 19.795 8.81998 19.1025 7.14813C18.41 5.47628 17.2373 4.04733 15.7327 3.04197C14.228 2.03661 12.4591 1.5 10.6495 1.5Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </div>
+                                        <span>Focus</span>
+                                    </div>
+                                </th>
+                                <th colspan="10" class="selling toggle-vis" data-column="11,12,13,14,15,16,17,18,19,20">
+                                    <div>
+                                        <div class="icon">
+                                            <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M8 0.25C5.65279 0.25 3.75 2.15279 3.75 4.5C3.75 6.84721 5.65279 8.75 8 8.75C10.3472 8.75 12.25 6.84721 12.25 4.5C12.25 2.15279 10.3472 0.25 8 0.25ZM5.25 4.5C5.25 2.98122 6.48122 1.75 8 1.75C9.51878 1.75 10.75 2.98122 10.75 4.5C10.75 6.01878 9.51878 7.25 8 7.25C6.48122 7.25 5.25 6.01878 5.25 4.5Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M1.75 14C1.75 12.7574 2.75736 11.75 4 11.75H4.34087C4.36722 11.75 4.39342 11.7542 4.41847 11.7623L5.28398 12.045C6.28046 12.3703 7.32078 12.512 8.35544 12.4699C8.49344 12.4643 8.60626 12.3614 8.63544 12.2264C8.70894 11.8864 8.81126 11.5571 8.93972 11.2412C9.00035 11.0921 8.87728 10.9257 8.71712 10.9416C7.72187 11.0405 6.71109 10.933 5.74959 10.6191L4.88407 10.3364C4.70869 10.2792 4.52536 10.25 4.34087 10.25H4C1.92893 10.25 0.25 11.9289 0.25 14V15.1883C0.25 15.9415 0.795884 16.5837 1.53927 16.7051C4.1345 17.1288 6.76099 17.2955 9.38082 17.2053C9.54327 17.1997 9.63131 17.0111 9.53971 16.8768C9.34579 16.5925 9.17568 16.2906 9.03224 15.9741C8.96318 15.8217 8.81229 15.7209 8.64501 15.7237C6.35042 15.762 4.05324 15.5957 1.78097 15.2247C1.76311 15.2218 1.75 15.2064 1.75 15.1883V14Z"
+                                                    fill="white" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 13.5C10 14.4719 10.3081 15.3718 10.8319 16.1074C11.1238 16.5173 11.4827 16.8762 11.8926 17.1681C12.6282 17.6919 13.5281 18 14.5 18C16.9853 18 19 15.9853 19 13.5C19 12.5281 18.6919 11.6282 18.1681 10.8926C17.8762 10.4827 17.5173 10.1238 17.1074 9.83194C16.3718 9.30809 15.4719 9 14.5 9C12.0147 9 10 11.0147 10 13.5ZM14.5 16.5C13.9436 16.5 13.4227 16.3486 12.976 16.0846L17.0846 11.976C17.3486 12.4227 17.5 12.9436 17.5 13.5C17.5 15.1569 16.1569 16.5 14.5 16.5ZM11.9154 15.024L16.024 10.9154C15.5773 10.6514 15.0564 10.5 14.5 10.5C12.8431 10.5 11.5 11.8431 11.5 13.5C11.5 14.0564 11.6514 14.5773 11.9154 15.024Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </div>
+                                        <span>Таємний покупець</span>
+                                    </div>
+                                </th>
+                                <th colspan="3" class="selling toggle-vis" data-column="21,22,23">
+                                    <div>
+                                        <div class="icon">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 7.00005C11 7.55233 10.5523 8.00005 10 8.00005C9.44771 8.00005 9 7.55233 9 7.00005C9 6.44776 9.44771 6.00005 10 6.00005C10.5523 6.00005 11 6.44776 11 7.00005Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M10 9.75005C10.4142 9.75005 10.75 10.0858 10.75 10.5V15.5C10.75 15.9143 10.4142 16.25 10 16.25C9.58579 16.25 9.25 15.9143 9.25 15.5V10.5C9.25 10.0858 9.58579 9.75005 10 9.75005Z"
+                                                    fill="white" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M12.2703 1.99268C11.1784 0.39502 8.82159 0.395014 7.72961 1.99268L7.29769 2.62463C4.59165 6.58384 2.26669 10.7905 0.353957 15.1881L0.263742 15.3956C-0.410313 16.9453 0.608051 18.705 2.2876 18.8927C7.41323 19.4656 12.5867 19.4656 17.7124 18.8927C19.3919 18.705 20.4103 16.9453 19.7362 15.3956L19.646 15.1881C17.7333 10.7905 15.4083 6.58385 12.7023 2.62463L12.2703 1.99268ZM8.96799 2.83909C9.46434 2.11288 10.5356 2.11288 11.032 2.83909L11.4639 3.47104C14.1165 7.35206 16.3955 11.4756 18.2705 15.7864L18.3607 15.9938C18.6321 16.6179 18.222 17.3264 17.5458 17.402C12.5309 17.9625 7.46911 17.9625 2.4542 17.402C1.77791 17.3264 1.36785 16.6179 1.63927 15.9938L1.72948 15.7864C3.60443 11.4756 5.88348 7.35205 8.53607 3.47104L8.96799 2.83909Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </div>
+                                        <span>Cкарги</span>
+                                    </div>
+                                </th>
+                                <th colspan="4" class="selling toggle-vis" data-column="24,25,26,27">
+                                    <div>
+                                        <div class="icon">
+                                            <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M11.9981 0.25L12.0059 0.250041L12.0074 0.250041C12.0331 0.250354 12.0586 0.251988 12.0839 0.254896L17.9881 0.879153C18.0148 0.881767 18.0413 0.885822 18.0674 0.891254C18.1031 0.898653 18.1381 0.908612 18.172 0.920995C18.3066 0.970027 18.4272 1.05755 18.5167 1.17759L23.0919 7.31956C23.1199 7.35609 23.1446 7.39548 23.1658 7.43742C23.1699 7.44555 23.1738 7.45378 23.1777 7.4621C23.2312 7.57859 23.2529 7.70405 23.2443 7.82696C23.2399 7.89115 23.2272 7.95464 23.2065 8.0158C23.1862 8.07591 23.1581 8.13375 23.1225 8.18778C23.1116 8.20433 23.0999 8.22054 23.0876 8.23633C23.0792 8.24718 23.0704 8.25777 23.0614 8.26809L12.575 20.4794C12.5497 20.5098 12.5218 20.5385 12.4914 20.565C12.4284 20.6201 12.3577 20.6633 12.2826 20.694C12.1902 20.732 12.0928 20.7503 11.996 20.75C11.9006 20.7498 11.8046 20.7314 11.7136 20.694C11.6383 20.6632 11.5674 20.6199 11.5043 20.5646C11.4741 20.5382 11.4463 20.5097 11.4211 20.4794L0.935644 8.26918C0.910885 8.2409 0.888125 8.2106 0.867635 8.17845C0.790048 8.05685 0.750024 7.91663 0.75 7.77517C0.749988 7.70346 0.760254 7.63144 0.781114 7.56136C0.798638 7.50241 0.823514 7.44528 0.85562 7.3914C0.869992 7.36726 0.885626 7.34408 0.902412 7.32194L5.477 1.181C5.48348 1.17219 5.49016 1.16352 5.49705 1.15497C5.57084 1.06342 5.66434 0.991419 5.7693 0.943456C5.81256 0.92369 5.85776 0.908007 5.90433 0.89672C5.93856 0.888417 5.97342 0.882509 6.00866 0.879087L11.9122 0.254897C11.9376 0.251977 11.9632 0.250347 11.989 0.250042L11.9901 0.250042L11.9981 0.25ZM21.0022 7.02518L18.4537 3.604L18.0802 7.02518H21.0022ZM13.6672 1.93066L16.6998 5.84733L17.0879 2.29234L13.6672 1.93066ZM6.90823 2.29234L10.3289 1.93066L7.29625 5.84737L6.90823 2.29234ZM11.998 2.22506L15.7145 7.0251H8.28146L11.998 2.22506ZM3.13267 8.52518H6.25792L9.37938 15.7994L3.13267 8.52518ZM5.54245 3.60403L2.99393 7.02518H5.91581L5.54245 3.60403ZM20.8635 8.52518L14.6167 15.7995L17.7382 8.52518H20.8635ZM7.89017 8.52518H16.1059L11.9981 18.0981L7.89017 8.52518Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </div>
+                                        <span>Бонус з якості</span>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr class="accent">
+                                <th rowspan="3">Код дилера</th>
+                                <th rowspan="3">Дилер</th>
+                                <th colspan="3">Рекомендації</th>
+                                <th colspan="3">Підготовка нового авто</th>
+                                <th colspan="3">Дзвінок вічливості</th>
+                                <th>Міn рівень рекомендацій</th>
+                                <th colspan="3">Таємний покупець</th>
+                                <th colspan="3">Якість баз даних</th>
+                                <th colspan="3">Аудит операційних стандартів</th>
+                                <th colspan="3">Рівень обробки скарг</th>
+                                <th colspan="4">Бонус з якості</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3">a%</th>
+                                <th colspan="3">b%</th>
+                                <th colspan="3">c%</th>
+                                <th>d%</th>
+                                <th colspan="3">e%</th>
+                                <th colspan="3">f%</th>
+                                <th colspan="3">g%</th>
+                                <th colspan="3">h%</th>
+                                <th colspan="4">(Ц1+Ц2+Ц3)*100%</th>
+                            </tr>
+                            <tr>
+                                <th>100%</th>
+                                <th>vs поп період</th>
+                                <th>QL</th>
+
+                                <th>99%</th>
+                                <th>vs поп період</th>
+                                <th>QL</th>
+
+                                <th>97%</th>
+                                <th>vs поп період</th>
+                                <th>QL</th>
+
+                                <th>100%</th>
+
+                                <th>97,5%</th>
+                                <th>vs поп період</th>
+                                <th>QL</th>
+
+                                <th>100%</th>
+                                <th>vs поп період</th>
+                                <th>QL</th>
+
+                                <th>81,3%</th>
+                                <th>vs поп період</th>
+                                <th>QL</th>
+
+                                <th>98,6%</th>
+                                <th>vs поп період</th>
+                                <th>QL</th>
+
+                                <th>Ц1</th>
+                                <th>Ц2</th>
+                                <th>Ц3</th>
+                                <th>16,7%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RRDI 1</td>
+                                <td>Dealer 1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>25</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>true</td>
+                                <td>99</td>
+                                <td>-0,7</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>80,1</td>
+                                <td>-14,7</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0,6</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>false</td>
+                            </tr>
+
+                            <tr>
+                                <td>RRDI 2</td>
+                                <td>Dealer 2</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>83</td>
+                                <td>-13</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>true</td>
+                                <td>99</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>80,1</td>
+                                <td>20</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>100</td>
+                            </tr>
+
+                            <tr>
+                                <td>RRDI 1</td>
+                                <td>Dealer 1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>25</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>true</td>
+                                <td>99</td>
+                                <td>-0,7</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>80,1</td>
+                                <td>-14,7</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0,6</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>false</td>
+                            </tr>
+
+                            <tr>
+                                <td>RRDI 2</td>
+                                <td>Dealer 2</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>83</td>
+                                <td>-13</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>true</td>
+                                <td>99</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>80,1</td>
+                                <td>20</td>
+                                <td>1</td>
+                                <td>100</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="service-table table">
+                <div class="box-header">
+                    <div class="table-heading">
+                        <i class="fa fa-file-o" aria-hidden="true"></i>
+                        Сервіс
+                    </div>
+                    <button type="button" class="service_table-btn">-</button>
+                </div>
+            
+                <div class="table-content">
+                    <div>
+                        <a class="service toggle-vis" data-column="0">Name</a>
+                        -
+                        <a class="service toggle-vis" data-column="1">Position</a>
+                        -
+                        <a class="service toggle-vis" data-column="2">Office</a>
+                        -
+                        <a class="service toggle-vis" data-column="3">Age</a>
+                        -
+                        <a class="service toggle-vis" data-column="4">Start date</a>
+                        -
+                        <a class="service toggle-vis" data-column="5">Salary</a>
+                    </div>
+                    <table id="service_container" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>$320,800</td>
+                            </tr>
+                            <tr>
+                                <td>Garrett Winters</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>63</td>
+                                <td>2011/07/25</td>
+                                <td>$170,750</td>
+                            </tr>
+                            <tr>
+                                <td>Ashton Cox</td>
+                                <td>Junior Technical Author</td>
+                                <td>San Francisco</td>
+                                <td>66</td>
+                                <td>2009/01/12</td>
+                                <td>$86,000</td>
+                            </tr>
+                            <tr>
+                                <td>Cedric Kelly</td>
+                                <td>Senior Javascript Developer</td>
+                                <td>Edinburgh</td>
+                                <td>22</td>
+                                <td>2012/03/29</td>
+                                <td>$433,060</td>
+                            </tr>
+                            <tr>
+                                <td>Airi Satou</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>Brielle Williamson</td>
+                                <td>Integration Specialist</td>
+                                <td>New York</td>
+                                <td>61</td>
+                                <td>2012/12/02</td>
+                                <td>$372,000</td>
+                            </tr>
+                            <tr>
+                                <td>Herrod Chandler</td>
+                                <td>Sales Assistant</td>
+                                <td>San Francisco</td>
+                                <td>59</td>
+                                <td>2012/08/06</td>
+                                <td>$137,500</td>
+                            </tr>
+                            <tr>
+                                <td>Rhona Davidson</td>
+                                <td>Integration Specialist</td>
+                                <td>Tokyo</td>
+                                <td>55</td>
+                                <td>2010/10/14</td>
+                                <td>$327,900</td>
+                            </tr>
+                            <tr>
+                                <td>Colleen Hurst</td>
+                                <td>Javascript Developer</td>
+                                <td>San Francisco</td>
+                                <td>39</td>
+                                <td>2009/09/15</td>
+                                <td>$205,500</td>
+                            </tr>
+                            <tr>
+                                <td>Sonya Frost</td>
+                                <td>Software Engineer</td>
+                                <td>Edinburgh</td>
+                                <td>23</td>
+                                <td>2008/12/13</td>
+                                <td>$103,600</td>
+                            </tr>
+                            <tr>
+                                <td>Jena Gaines</td>
+                                <td>Office Manager</td>
+                                <td>London</td>
+                                <td>30</td>
+                                <td>2008/12/19</td>
+                                <td>$90,560</td>
+                            </tr>
+                            <tr>
+                                <td>Quinn Flynn</td>
+                                <td>Support Lead</td>
+                                <td>Edinburgh</td>
+                                <td>22</td>
+                                <td>2013/03/03</td>
+                                <td>$342,000</td>
+                            </tr>
+                            <tr>
+                                <td>Charde Marshall</td>
+                                <td>Regional Director</td>
+                                <td>San Francisco</td>
+                                <td>36</td>
+                                <td>2008/10/16</td>
+                                <td>$470,600</td>
+                            </tr>
+                            <tr>
+                                <td>Haley Kennedy</td>
+                                <td>Senior Marketing Designer</td>
+                                <td>London</td>
+                                <td>43</td>
+                                <td>2012/12/18</td>
+                                <td>$313,500</td>
+                            </tr>
+                            <tr>
+                                <td>Tatyana Fitzpatrick</td>
+                                <td>Regional Director</td>
+                                <td>London</td>
+                                <td>19</td>
+                                <td>2010/03/17</td>
+                                <td>$385,750</td>
+                            </tr>
+                            <tr>
+                                <td>Michael Silva</td>
+                                <td>Marketing Designer</td>
+                                <td>London</td>
+                                <td>66</td>
+                                <td>2012/11/27</td>
+                                <td>$198,500</td>
+                            </tr>
+                            <tr>
+                                <td>Paul Byrd</td>
+                                <td>Chief Financial Officer (CFO)</td>
+                                <td>New York</td>
+                                <td>64</td>
+                                <td>2010/06/09</td>
+                                <td>$725,000</td>
+                            </tr>
+                            <tr>
+                                <td>Gloria Little</td>
+                                <td>Systems Administrator</td>
+                                <td>New York</td>
+                                <td>59</td>
+                                <td>2009/04/10</td>
+                                <td>$237,500</td>
+                            </tr>
+                            <tr>
+                                <td>Bradley Greer</td>
+                                <td>Software Engineer</td>
+                                <td>London</td>
+                                <td>41</td>
+                                <td>2012/10/13</td>
+                                <td>$132,000</td>
+                            </tr>
+                            <tr>
+                                <td>Dai Rios</td>
+                                <td>Personnel Lead</td>
+                                <td>Edinburgh</td>
+                                <td>35</td>
+                                <td>2012/09/26</td>
+                                <td>$217,500</td>
+                            </tr>
+                            <tr>
+                                <td>Jenette Caldwell</td>
+                                <td>Development Lead</td>
+                                <td>New York</td>
+                                <td>30</td>
+                                <td>2011/09/03</td>
+                                <td>$345,000</td>
+                            </tr>
+                            <tr>
+                                <td>Yuri Berry</td>
+                                <td>Chief Marketing Officer (CMO)</td>
+                                <td>New York</td>
+                                <td>40</td>
+                                <td>2009/06/25</td>
+                                <td>$675,000</td>
+                            </tr>
+                            <tr>
+                                <td>Caesar Vance</td>
+                                <td>Pre-Sales Support</td>
+                                <td>New York</td>
+                                <td>21</td>
+                                <td>2011/12/12</td>
+                                <td>$106,450</td>
+                            </tr>
+                            <tr>
+                                <td>Doris Wilder</td>
+                                <td>Sales Assistant</td>
+                                <td>Sydney</td>
+                                <td>23</td>
+                                <td>2010/09/20</td>
+                                <td>$85,600</td>
+                            </tr>
+                            <tr>
+                                <td>Angelica Ramos</td>
+                                <td>Chief Executive Officer (CEO)</td>
+                                <td>London</td>
+                                <td>47</td>
+                                <td>2009/10/09</td>
+                                <td>$1,200,000</td>
+                            </tr>
+                            <tr>
+                                <td>Gavin Joyce</td>
+                                <td>Developer</td>
+                                <td>Edinburgh</td>
+                                <td>42</td>
+                                <td>2010/12/22</td>
+                                <td>$92,575</td>
+                            </tr>
+                            <tr>
+                                <td>Jennifer Chang</td>
+                                <td>Regional Director</td>
+                                <td>Singapore</td>
+                                <td>28</td>
+                                <td>2010/11/14</td>
+                                <td>$357,650</td>
+                            </tr>
+                            <tr>
+                                <td>Brenden Wagner</td>
+                                <td>Software Engineer</td>
+                                <td>San Francisco</td>
+                                <td>28</td>
+                                <td>2011/06/07</td>
+                                <td>$206,850</td>
+                            </tr>
+                            <tr>
+                                <td>Fiona Green</td>
+                                <td>Chief Operating Officer (COO)</td>
+                                <td>San Francisco</td>
+                                <td>48</td>
+                                <td>2010/03/11</td>
+                                <td>$850,000</td>
+                            </tr>
+                            <tr>
+                                <td>Shou Itou</td>
+                                <td>Regional Marketing</td>
+                                <td>Tokyo</td>
+                                <td>20</td>
+                                <td>2011/08/14</td>
+                                <td>$163,000</td>
+                            </tr>
+                            <tr>
+                                <td>Michelle House</td>
+                                <td>Integration Specialist</td>
+                                <td>Sydney</td>
+                                <td>37</td>
+                                <td>2011/06/02</td>
+                                <td>$95,400</td>
+                            </tr>
+                            <tr>
+                                <td>Suki Burks</td>
+                                <td>Developer</td>
+                                <td>London</td>
+                                <td>53</td>
+                                <td>2009/10/22</td>
+                                <td>$114,500</td>
+                            </tr>
+                            <tr>
+                                <td>Prescott Bartlett</td>
+                                <td>Technical Author</td>
+                                <td>London</td>
+                                <td>27</td>
+                                <td>2011/05/07</td>
+                                <td>$145,000</td>
+                            </tr>
+                            <tr>
+                                <td>Gavin Cortez</td>
+                                <td>Team Leader</td>
+                                <td>San Francisco</td>
+                                <td>22</td>
+                                <td>2008/10/26</td>
+                                <td>$235,500</td>
+                            </tr>
+                            <tr>
+                                <td>Martena Mccray</td>
+                                <td>Post-Sales support</td>
+                                <td>Edinburgh</td>
+                                <td>46</td>
+                                <td>2011/03/09</td>
+                                <td>$324,050</td>
+                            </tr>
+                            <tr>
+                                <td>Unity Butler</td>
+                                <td>Marketing Designer</td>
+                                <td>San Francisco</td>
+                                <td>47</td>
+                                <td>2009/12/09</td>
+                                <td>$85,675</td>
+                            </tr>
+                            <tr>
+                                <td>Howard Hatfield</td>
+                                <td>Office Manager</td>
+                                <td>San Francisco</td>
+                                <td>51</td>
+                                <td>2008/12/16</td>
+                                <td>$164,500</td>
+                            </tr>
+                            <tr>
+                                <td>Hope Fuentes</td>
+                                <td>Secretary</td>
+                                <td>San Francisco</td>
+                                <td>41</td>
+                                <td>2010/02/12</td>
+                                <td>$109,850</td>
+                            </tr>
+                            <tr>
+                                <td>Vivian Harrell</td>
+                                <td>Financial Controller</td>
+                                <td>San Francisco</td>
+                                <td>62</td>
+                                <td>2009/02/14</td>
+                                <td>$452,500</td>
+                            </tr>
+                            <tr>
+                                <td>Timothy Mooney</td>
+                                <td>Office Manager</td>
+                                <td>London</td>
+                                <td>37</td>
+                                <td>2008/12/11</td>
+                                <td>$136,200</td>
+                            </tr>
+                            <tr>
+                                <td>Jackson Bradshaw</td>
+                                <td>Director</td>
+                                <td>New York</td>
+                                <td>65</td>
+                                <td>2008/09/26</td>
+                                <td>$645,750</td>
+                            </tr>
+                            <tr>
+                                <td>Olivia Liang</td>
+                                <td>Support Engineer</td>
+                                <td>Singapore</td>
+                                <td>64</td>
+                                <td>2011/02/03</td>
+                                <td>$234,500</td>
+                            </tr>
+                            <tr>
+                                <td>Bruno Nash</td>
+                                <td>Software Engineer</td>
+                                <td>London</td>
+                                <td>38</td>
+                                <td>2011/05/03</td>
+                                <td>$163,500</td>
+                            </tr>
+                            <tr>
+                                <td>Sakura Yamamoto</td>
+                                <td>Support Engineer</td>
+                                <td>Tokyo</td>
+                                <td>37</td>
+                                <td>2009/08/19</td>
+                                <td>$139,575</td>
+                            </tr>
+                            <tr>
+                                <td>Thor Walton</td>
+                                <td>Developer</td>
+                                <td>New York</td>
+                                <td>61</td>
+                                <td>2013/08/11</td>
+                                <td>$98,540</td>
+                            </tr>
+                            <tr>
+                                <td>Finn Camacho</td>
+                                <td>Support Engineer</td>
+                                <td>San Francisco</td>
+                                <td>47</td>
+                                <td>2009/07/07</td>
+                                <td>$87,500</td>
+                            </tr>
+                            <tr>
+                                <td>Serge Baldwin</td>
+                                <td>Data Coordinator</td>
+                                <td>Singapore</td>
+                                <td>64</td>
+                                <td>2012/04/09</td>
+                                <td>$138,575</td>
+                            </tr>
+                            <tr>
+                                <td>Zenaida Frank</td>
+                                <td>Software Engineer</td>
+                                <td>New York</td>
+                                <td>63</td>
+                                <td>2010/01/04</td>
+                                <td>$125,250</td>
+                            </tr>
+                            <tr>
+                                <td>Zorita Serrano</td>
+                                <td>Software Engineer</td>
+                                <td>San Francisco</td>
+                                <td>56</td>
+                                <td>2012/06/01</td>
+                                <td>$115,000</td>
+                            </tr>
+                            <tr>
+                                <td>Jennifer Acosta</td>
+                                <td>Junior Javascript Developer</td>
+                                <td>Edinburgh</td>
+                                <td>43</td>
+                                <td>2013/02/01</td>
+                                <td>$75,650</td>
+                            </tr>
+                            <tr>
+                                <td>Cara Stevens</td>
+                                <td>Sales Assistant</td>
+                                <td>New York</td>
+                                <td>46</td>
+                                <td>2011/12/06</td>
+                                <td>$145,600</td>
+                            </tr>
+                            <tr>
+                                <td>Hermione Butler</td>
+                                <td>Regional Director</td>
+                                <td>London</td>
+                                <td>47</td>
+                                <td>2011/03/21</td>
+                                <td>$356,250</td>
+                            </tr>
+                            <tr>
+                                <td>Lael Greer</td>
+                                <td>Systems Administrator</td>
+                                <td>London</td>
+                                <td>21</td>
+                                <td>2009/02/27</td>
+                                <td>$103,500</td>
+                            </tr>
+                            <tr>
+                                <td>Jonas Alexander</td>
+                                <td>Developer</td>
+                                <td>San Francisco</td>
+                                <td>30</td>
+                                <td>2010/07/14</td>
+                                <td>$86,500</td>
+                            </tr>
+                            <tr>
+                                <td>Shad Decker</td>
+                                <td>Regional Director</td>
+                                <td>Edinburgh</td>
+                                <td>51</td>
+                                <td>2008/11/13</td>
+                                <td>$183,000</td>
+                            </tr>
+                            <tr>
+                                <td>Michael Bruce</td>
+                                <td>Javascript Developer</td>
+                                <td>Singapore</td>
+                                <td>29</td>
+                                <td>2011/06/27</td>
+                                <td>$183,000</td>
+                            </tr>
+                            <tr>
+                                <td>Donna Snider</td>
+                                <td>Customer Support</td>
+                                <td>New York</td>
+                                <td>27</td>
+                                <td>2011/01/25</td>
+                                <td>$112,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+</div>
+    <script src="./js/das.js"></script>
+</body>
+</html>

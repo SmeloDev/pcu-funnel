@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+button {
+    margin: 0;
+    font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial",
+        sans-serif;
+    line-height: 1.42;
+}
+
+.collapse {
+    display: none;
+}
+
+.content-wrapper {
+    min-height: 100vh;
+
+    margin-left: 230px;
+    padding-top: 70px;
+    padding-bottom: 40px;
+
+    background-color: #ecf0f5;
+    z-index: 800;
+}
+
+.quality-section {
+    margin: 20px 20px 5px 20px;
+
+    background-color: #fff;
+}
+
+.section-heading {
+    padding: 6px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #223464;
+}
+
+.section-heading h4 {
+    margin: 0;
+    
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+
+    color: #fff;
+}
+
+.section-heading .button-container {
+    display: flex;
+}
+
+.section-heading .button {
+    height: 23px;
+    width: 23px;
+    margin: 5px;
+
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 900;
+    border: 2px solid #fff;
+
+}
+
+.section-content {
+    min-height: 110px;
+    padding: 20px;
+    /* display: flex;
+    align-items: center; */
+}
+
+.section-content .table {
+    margin-bottom: 40px;
+}
+
+.section-content .box-header {
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #ECF0F4;
+    border-top: 3px solid #223364;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.section-content .box-header button {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.table-heading i.fa {
+    margin-right: 8px;
+
+}
+.table-heading i.fa::before{
+    content: "\f15b";
+}
+
+.section-content .table .table-content{
+    position: relative;
+    padding-top: 15px;
+}
+
+.section-content .table .table-content .filter_column_btn {
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #223464;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.table .dataTables_wrapper .dataTables_filter {
+    margin-right: 45px;
+    margin-bottom: 30px;
+}
+
+.dataTables_wrapper .dataTables_length select,.dataTables_wrapper .dataTables_filter input {
+    padding: 6px 8px !important;
+    border-radius: 0 !important;
+    border: 1px solid #223364 !important;
+    outline: none;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.table .table-content table {
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.table-content table.dataTable thead th,
+.table-content table.dataTable thead td {
+    padding: 5px 15px;
+    text-align: left;
+    
+}
+table.dataTable thead tr.tab th.toggle-vis {
+    padding: 0;
+ 
+    background: #ECF0F4;
+    border: 1px solid #223464;
+    border-bottom: none;
+    cursor: pointer;
+    
+}
+table.dataTable thead tr.tab th.toggle-vis div{
+    display: flex;
+    align-items: center;
+}
+table.dataTable thead tr.tab th.toggle-vis div .icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #223464;
+}
+table.dataTable thead tr.tab th.toggle-vis div span {
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+table.dataTable thead tr.tab th {
+    border-bottom: none;
+}
+table.dataTable thead tr.accent th{
+    background-color: #223464;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.table .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.table .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    border: 1px solid rgb(47, 39, 38);
+    background: rgb(47, 39, 38);
+}
+
+.table .dataTables_wrapper .dataTables_paginate .paginate_button {
+    font-size: 12px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .content-wrapper {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .content-wrapper {
+        margin-left: 150px;
+    }
+}
+
+
+
