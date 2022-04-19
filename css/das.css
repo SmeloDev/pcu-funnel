@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body,
@@ -8,6 +9,47 @@ button {
     font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial",
         sans-serif;
     line-height: 1.42;
+}
+
+@keyframes tableAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translate(0, -20%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes openWrapper {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translate(100%, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+@keyframes slideRight {
+    0% {
+        transform: translate(-100%,0);
+    }
+
+    100% {
+    transform: translate(0, 0);
+    }
 }
 
 .collapse {
@@ -43,16 +85,19 @@ button {
 
 .section-heading h4 {
     margin: 0;
-    
+
     font-size: 14px;
     line-height: 18px;
     font-weight: 600;
 
     color: #fff;
+
+    animation: slideRight 1000ms ease;
 }
 
 .section-heading .button-container {
     display: flex;
+    animation: slideLeft 1000ms ease;
 }
 
 .section-heading .button {
@@ -66,7 +111,11 @@ button {
     color: #fff;
     font-weight: 900;
     border: 2px solid #fff;
+    transition: transform 400ms ease;
+}
 
+.section-heading .button:hover, .section-heading .button:focus {
+    transform: scale(1.1);
 }
 
 .section-content {
@@ -78,6 +127,7 @@ button {
 
 .section-content .table {
     margin-bottom: 40px;
+    animation: tableAnimation 2000ms ease;
 }
 
 .section-content .box-header {
@@ -97,8 +147,8 @@ button {
 
 .section-content .box-header button {
     font-weight: 900;
-    font-size: 20px;
-    line-height: 25px;
+    font-size: 30px;
+    line-height: 1;
     border: none;
     cursor: pointer;
 }
@@ -107,13 +157,17 @@ button {
     margin-right: 8px;
 
 }
-.table-heading i.fa::before{
+
+.table-heading i.fa::before {
     content: "\f15b";
 }
 
-.section-content .table .table-content{
+.section-content .table .table-content {
     position: relative;
     padding-top: 15px;
+    animation: tableAnimation 1500ms ease;
+    transform-origin: top center;
+
 }
 
 .section-content .table .table-content .filter_column_btn {
@@ -130,12 +184,172 @@ button {
     z-index: 10;
 }
 
+.modal_wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(34, 51, 100, 0.5);
+    z-index: 100;
+    animation: openWrapper 500ms ease;
+}
+
+.modal_wrapper.visible {
+    display: flex;
+}
+
+.modal_wrapper .modal_container{
+    padding: 0 20px 20px 20px;
+    background-color: #fff;
+    animation: tableAnimation 500ms ease;
+}
+
+.modal_wrapper .modal_container .modal_heading {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #F4F4F4;
+}
+
+.modal_wrapper .modal_container .modal_heading h5, 
+.modal_wrapper .modal_container .modal_content label {
+    font-size: 12px;
+}
+
+.modal_wrapper .modal_container .select-container label {
+    margin-bottom: 7px;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 13px;
+}
+
+.modal_wrapper .modal_container .select-container select {
+    padding: 5px;
+    border: 1px solid #223464;
+    outline: none;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.modal_wrapper .modal_container .modal_heading button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal_wrapper .modal_container .modal_heading button svg {
+    transition: transform 600ms ease;
+}
+
+.modal_wrapper .modal_container .modal_heading button:hover svg,
+.modal_wrapper .modal_container .modal_heading button:focus svg{
+    transform: rotateZ(360deg);
+}
+
+.modal_wrapper .modal_container .modal_content {
+    margin-top: 20px;
+    display: flex;
+}
+
+.modal_wrapper .modal_container .modal_content .checkbox-container{
+    display: flex;
+}
+.modal_wrapper .modal_container .modal_content .checkbox-container .checkbox{
+  margin-bottom: 10px;
+}
+.modal_wrapper .modal_container .modal_content .checkbox-container label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.modal_wrapper .modal_container .modal_content .checkbox-container label::before {
+    content: "";
+    margin-right: 5px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #223464;
+}
+
+.modal_wrapper .modal_container .modal_content .checkbox-container input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+}
+
+.modal_wrapper .modal_container .modal_content .checkbox-container .checkbox input:checked ~ label::before {
+    background-image: url('../data/checkbox_icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.modal_wrapper .modal_container .modal_content .select-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+}
+.modal_wrapper .modal_container .modal_content .select-container .select {
+    display: flex;
+}
+.modal_wrapper .modal_container .modal_content .select-container .select .select-icon {
+    width: 32px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #223464;
+    border-right: none;
+}
+.modal_wrapper .modal_container .modal_content .select-container .select .select-icon i {
+    font-size: 12px;
+}
+.modal_wrapper .modal_container .modal_content .select-container select {
+    width: 100%;
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; */
+}
+
+.modal_wrapper .modal_container .save_button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.modal_wrapper .modal_container .save_button button {
+    padding: 5px 20px;
+    background-color: #223464;
+    color: #fff;
+    border: 1px solid #223464;
+    cursor: pointer;
+    transition: transform 400ms ease;
+    font-size: 12px;
+}
+.modal_wrapper .modal_container .save_button button:hover,
+.modal_wrapper .modal_container .save_button button:focus {
+    transform: scale(1.1);
+}
+
 .table .dataTables_wrapper .dataTables_filter {
     margin-right: 45px;
     margin-bottom: 30px;
 }
 
-.dataTables_wrapper .dataTables_length select,.dataTables_wrapper .dataTables_filter input {
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
     padding: 6px 8px !important;
     border-radius: 0 !important;
     border: 1px solid #223364 !important;
@@ -158,21 +372,33 @@ button {
 .table-content table.dataTable thead td {
     padding: 5px 15px;
     text-align: left;
-    
+    color: #223464;
+    background-color: #ECF0F4;
+    border: 1px solid #223464;
 }
+
+.table-content table.dataTable thead th.empty-cell{
+    background-color: #fff;
+    border: none;
+}
+
 table.dataTable thead tr.tab th.toggle-vis {
     padding: 0;
- 
+
     background: #ECF0F4;
     border: 1px solid #223464;
     border-bottom: none;
     cursor: pointer;
-    
 }
-table.dataTable thead tr.tab th.toggle-vis div{
+table.dataTable thead tr.tab th.toggle-vis:hover .close {
+    transform: rotate(360deg);
+}
+
+table.dataTable thead tr.tab th.toggle-vis div {
     display: flex;
     align-items: center;
 }
+
 table.dataTable thead tr.tab th.toggle-vis div .icon {
     width: 45px;
     height: 45px;
@@ -182,17 +408,42 @@ table.dataTable thead tr.tab th.toggle-vis div .icon {
 
     background: #223464;
 }
+
 table.dataTable thead tr.tab th.toggle-vis div span {
     margin-left: 10px;
     text-transform: uppercase;
 }
+
+table.dataTable thead tr.tab th.toggle-vis div .close {
+    margin-left: auto;
+    transition: transform 700ms ease;
+}
+
 table.dataTable thead tr.tab th {
     border-bottom: none;
 }
-table.dataTable thead tr.accent th{
+
+table.dataTable thead tr.accent th {
     background-color: #223464;
     border: 1px solid #fff;
     color: #fff;
+}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>th,
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>td,
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>th,
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>td {
+    text-align: center;
+}
+span.statistics {
+    padding: 0 4px;
+    border-radius: 3px;
+}
+span.statistics.good_number {
+    background-color: #59C076;
+}
+
+span.statistics.bad_number {
+    background-color: #FB5959;
 }
 
 .table .dataTables_wrapper .dataTables_paginate .paginate_button.current,
@@ -218,6 +469,3 @@ table.dataTable thead tr.accent th{
         margin-left: 150px;
     }
 }
-
-
-

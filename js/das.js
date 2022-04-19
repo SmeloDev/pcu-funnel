@@ -26,12 +26,19 @@ $(document).ready(function () {
 
     const columns = table.columns(atr);
     columns.visible(!table.column(atr).visible());
+
+    //----------------------------------
+    const inpt = document.querySelector(
+      `input.selling[data-column="${e.currentTarget.dataset.column}"]`
+    );
+    inpt.checked = table.column(atr).visible();
   });
 });
 
 $(document).ready(function () {
   var table = $("#service_container").DataTable({
     // scrollY: "200px",
+    scrollX: true,
     paging: true,
     language: {
       lengthMenu: "Показати _MENU_ рядків",
@@ -49,14 +56,19 @@ $(document).ready(function () {
     },
   });
 
-  $("a.toggle-vis.service").on("click", function (e) {
-    e.preventDefault();
+  $(".toggle-vis.service").on("click", function (e) {
+    // e.preventDefault();
 
-    // Get the column API object
-    var column = table.column($(this).attr("data-column"));
+    const atr = $(this).attr("data-column").split(",");
 
-    // Toggle the visibility
-    column.visible(!column.visible());
+    const columns = table.columns(atr);
+    columns.visible(!table.column(atr).visible());
+
+    //----------------------------------
+    const inpt = document.querySelector(
+      `input.service[data-column="${e.currentTarget.dataset.column}"]`
+    );
+    inpt.checked = table.column(atr).visible();
   });
 });
 
@@ -85,6 +97,11 @@ function closesContainer(container, button, className) {
   if (container && button) {
     button.addEventListener("click", () => {
       container.classList.toggle(className);
+      if (button.textContent === "-") {
+        button.textContent = "+";
+      } else {
+        button.textContent = "-";
+      }
     });
   }
 }
@@ -92,3 +109,81 @@ function closesContainer(container, button, className) {
 closesContainer(qualitySectionContent, qualityExpandBtn, "collapse");
 closesContainer(sellingTableContent, sellingTableBtn, "collapse");
 closesContainer(serviceTableContent, serviceTableBtn, "collapse");
+
+//------------------------------------
+
+const sellingFilterBtn = document.querySelector(
+  ".selling-table .filter_column_btn"
+);
+const sellingFilterWrapper = document.querySelector(
+  ".selling-table .modal_wrapper"
+);
+const sellingFilterCloseBtn = document.querySelector(
+  ".selling-table .modal_wrapper .close_btn"
+);
+
+const sellingFilterSaveBtn = document.querySelector(
+  ".selling-table .modal_wrapper .save_btn"
+);
+
+if (sellingFilterBtn) {
+  sellingFilterBtn.addEventListener("click", () => {
+    sellingFilterWrapper.classList.add("visible");
+  });
+}
+
+if (sellingFilterWrapper) {
+  sellingFilterWrapper.addEventListener("click", (e) => {
+    if (
+      e.target === sellingFilterWrapper ||
+      e.target === sellingFilterSaveBtn
+    ) {
+      sellingFilterWrapper.classList.remove("visible");
+    }
+  });
+}
+
+if (sellingFilterCloseBtn) {
+  sellingFilterCloseBtn.addEventListener("click", () => {
+    sellingFilterWrapper.classList.remove("visible");
+  });
+}
+
+//------------------------------------
+
+const serviceFilterBtn = document.querySelector(
+  ".service-table .filter_column_btn"
+);
+const serviceFilterWrapper = document.querySelector(
+  ".service-table .modal_wrapper"
+);
+const serviceFilterCloseBtn = document.querySelector(
+  ".service-table .modal_wrapper .close_btn"
+);
+
+const serviceFilterSaveBtn = document.querySelector(
+  ".service-table .modal_wrapper .save_btn"
+);
+
+if (serviceFilterBtn) {
+  serviceFilterBtn.addEventListener("click", () => {
+    serviceFilterWrapper.classList.add("visible");
+  });
+}
+
+if (serviceFilterWrapper) {
+  serviceFilterWrapper.addEventListener("click", (e) => {
+    if (
+      e.target === serviceFilterWrapper ||
+      e.target === serviceFilterSaveBtn
+    ) {
+      serviceFilterWrapper.classList.remove("visible");
+    }
+  });
+}
+
+if (serviceFilterCloseBtn) {
+  serviceFilterCloseBtn.addEventListener("click", () => {
+    serviceFilterWrapper.classList.remove("visible");
+  });
+}
