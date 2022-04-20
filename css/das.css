@@ -457,6 +457,25 @@ span.statistics.bad_number {
     font-size: 12px;
 }
 
+.dataTables_scrollHead thead .popup::before{
+    content: attr(data-popup);
+    position: absolute;
+    transform: translate(100%, 0);
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.25;
+    color: #fff;
+    background-color: #223464;;
+    border: 1px solid #223464;
+    opacity: 0;
+    transition: all 400ms ease;
+    /* z-index: 100; */
+}
+.dataTables_scrollHead thead .popup:hover::before {
+    opacity: 1;
+}
+
 
 @media screen and (max-width: 1024px) {
     .content-wrapper {
