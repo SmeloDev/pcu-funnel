@@ -364,13 +364,14 @@ button {
     text-align: left;
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 15px;
+    border-collapse: collapse;
 }
 
 .table-content table.dataTable thead th,
 .table-content table.dataTable thead td {
-    padding: 5px 15px;
+    padding: 5px 20px 5px 10px;
     text-align: left;
     color: #223464;
     background-color: #ECF0F4;
@@ -470,12 +471,26 @@ span.statistics.bad_number {
     border: 1px solid #223464;
     opacity: 0;
     transition: all 400ms ease;
+    pointer-events: none;
     /* z-index: 100; */
 }
 .dataTables_scrollHead thead .popup:hover::before {
     opacity: 1;
 }
+.table table.dataTable thead .sorting {
+    background-image: url('../data/sorting_icon.svg') !important;
+}
+.table table.dataTable thead .sorting_asc {
+    background-image: url('../data/sorting_asc_icon.svg') !important;
+}
+.table table.dataTable thead .sorting_desc {
+    background-image: url('../data/sorting_desc_icon.svg') !important;
+}
 
+
+/* table.dataTable thead .sorting_asc {
+    background-image: url('../data/sorting_asc_icon.svg') !important;
+} */
 
 @media screen and (max-width: 1024px) {
     .content-wrapper {

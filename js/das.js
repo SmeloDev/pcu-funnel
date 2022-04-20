@@ -1,6 +1,12 @@
 $(document).ready(function () {
   var table = $("#selling_container").DataTable({
     // scrollY: "200px",
+    // initComplete: function () {
+    //   var api = this.api();
+    //   api.$("td").click(function () {
+    //     api.search(this.innerHTML).draw();
+    //   });
+    // },
     scrollX: true,
     paging: true,
     language: {
