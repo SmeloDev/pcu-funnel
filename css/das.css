@@ -164,24 +164,40 @@ button {
 
 .section-content .table .table-content {
     position: relative;
-    padding-top: 15px;
+    padding-top: 55px;
     animation: tableAnimation 1500ms ease;
     transform-origin: top center;
 
 }
 
 .section-content .table .table-content .filter_column_btn {
-    width: 31px;
+    /* width: 31px; */
     height: 31px;
     position: absolute;
     top: 15px;
-    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #223464;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.section-content .table .table-content .filter_column_btn .filter_icon {
+    width: 31px;
+    height: 31px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #223464;
-    cursor: pointer;
-    z-index: 10;
+}
+
+.section-content .table .table-content .filter_column_btn span {
+    margin: 0 10px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
 }
 
 .modal_wrapper {
@@ -344,7 +360,7 @@ button {
 }
 
 .table .dataTables_wrapper .dataTables_filter {
-    margin-right: 45px;
+    display: none;
     margin-bottom: 30px;
 }
 

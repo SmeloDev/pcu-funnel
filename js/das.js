@@ -1,14 +1,33 @@
 $(document).ready(function () {
   var table = $("#selling_container").DataTable({
-    // scrollY: "200px",
-    // initComplete: function () {
-    //   var api = this.api();
-    //   api.$("td").click(function () {
-    //     api.search(this.innerHTML).draw();
-    //   });
-    // },
+    initComplete: function () {
+      this.api()
+        .columns(1)
+        .every(function () {
+          var column = this;
+          var containerForSelect = $("#selling_table_dealer");
+
+          var select = $('<select><option value=""></option></select>')
+            .appendTo(containerForSelect)
+            .on("change", function () {
+              var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+              column.search(val ? "^" + val + "$" : "", true, false).draw();
+            });
+
+          column
+            .data()
+            .unique()
+            .sort()
+            .each(function (d, j) {
+              select.append('<option value="' + d + '">' + d + "</option>");
+            });
+        });
+    },
     scrollX: true,
-    paging: true,
+    paging: false,
+    info: false,
+
     language: {
       lengthMenu: "Показати _MENU_ рядків",
       search: "Пошук:",
@@ -43,9 +62,34 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   var table = $("#service_container").DataTable({
-    // scrollY: "200px",
+    initComplete: function () {
+      this.api()
+        .columns(1)
+        .every(function () {
+          var column = this;
+          var containerForSelect = $("#service_table_dealer");
+
+          var select = $('<select><option value=""></option></select>')
+            .appendTo(containerForSelect)
+            .on("change", function () {
+              var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+              column.search(val ? "^" + val + "$" : "", true, false).draw();
+            });
+
+          column
+            .data()
+            .unique()
+            .sort()
+            .each(function (d, j) {
+              select.append('<option value="' + d + '">' + d + "</option>");
+            });
+        });
+    },
     scrollX: true,
-    paging: true,
+    paging: false,
+    info: false,
+
     language: {
       lengthMenu: "Показати _MENU_ рядків",
       search: "Пошук:",
