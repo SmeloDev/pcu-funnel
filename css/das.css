@@ -22,6 +22,7 @@ button {
     --table-text-color-white: #fff;
 
     /* щоб поміняти колір в таблиці в залежності від обраного бренду просто замінити в перемінних нижче */
+    /* для всіх крім бренду DS просто міняється backgound а для DS ще треба поміняти колір шрифта і border на білий (--table-text-color-white) */
 
     --accent-table-bg-color: var(--accent-table-color-peugeot);
     --table-border-color: var(--table-text-color-black);
