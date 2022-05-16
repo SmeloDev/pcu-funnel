@@ -1,11 +1,11 @@
 $(document).ready(function () {
-  var table = $("#selling_container").DataTable({
+  var table = $("#new_car_container").DataTable({
     initComplete: function () {
       this.api()
         .columns(1)
         .every(function () {
           var column = this;
-          var containerForSelect = $("#selling_table_dealer");
+          var containerForSelect = $("#new_car_table_dealer");
 
           var select = $('<select><option value=""></option></select>')
             .appendTo(containerForSelect)
@@ -44,19 +44,66 @@ $(document).ready(function () {
     },
   });
 
-  $(".toggle-vis.selling").on("click", function (e) {
-    // e.preventDefault();
+  const inptsFocusArr = Array.from(
+    document.querySelectorAll(
+      `.checkbox-container input.toggle-vis.new_car.focus`
+    )
+  );
+  const inptsArr = Array.from(
+    document.querySelectorAll(`.checkbox-container input.toggle-vis.new_car`)
+  );
+  const startCheckboxes = [
+    "recommendation_checkbox",
+    "new_car_checkbox",
+    "politeness_checkbox",
+  ];
 
-    const atr = $(this).attr("data-column").split(",");
-
-    const columns = table.columns(atr);
-    columns.visible(!table.column(atr).visible());
-
-    //----------------------------------
+  // Відображення колонок по кліку на чекбокс
+  $(".toggle-vis.new_car").on("click", function (e) {
+    const attributesArray = $(this).attr("data-column").split(",");
+    const columns = table.columns(attributesArray);
     const inpt = document.querySelector(
-      `input.selling[data-column="${e.currentTarget.dataset.column}"]`
+      `input.new_car[data-column="${e.currentTarget.dataset.column}"]`
     );
-    inpt.checked = table.column(atr).visible();
+
+    columns.visible(!table.column(attributesArray).visible());
+    inpt.checked = table.column(attributesArray).visible();
+
+    if (this.id === "all_focus_checkbox") {
+      if (this.checked) {
+        inptsFocusArr.map((i) => (i.checked = true));
+      } else {
+        inptsFocusArr.map((i) => (i.checked = false));
+      }
+    }
+    if (this.id === "focus_checkbox") {
+      if (this.checked) {
+        startCheckboxes.map((i) => {
+          const input = document.getElementById(`${i}`);
+          input.checked = true;
+        });
+      } else {
+        inptsFocusArr.map((i) => (i.checked = false));
+      }
+    }
+  });
+
+  // Закриття колонок по кліку на заголовок колонок
+  $(".close-vis.new_car").on("click", function (e) {
+    const attributesArray = $(this).attr("data-column").split(",");
+    const columns = table.columns(attributesArray);
+    const inpt = document.querySelector(
+      `input.new_car[data-column="${e.currentTarget.dataset.column}"]`
+    );
+
+    columns.visible(false);
+    inpt.checked = false;
+    inptsFocusArr.map((i) => (i.checked = false));
+  });
+
+  // Перша загрузка колонок і їх відображення в залежності від того checked input або ні
+  inptsArr.map((i) => {
+    table.columns([i.dataset.column]).visible(i.checked);
   });
 });
 
@@ -107,19 +154,82 @@ $(document).ready(function () {
   });
 
   $(".toggle-vis.service").on("click", function (e) {
-    // e.preventDefault();
-
     const atr = $(this).attr("data-column").split(",");
-
     const columns = table.columns(atr);
-    columns.visible(!table.column(atr).visible());
-
-    //----------------------------------
     const inpt = document.querySelector(
       `input.service[data-column="${e.currentTarget.dataset.column}"]`
     );
+
+    columns.visible(!table.column(atr).visible());
     inpt.checked = table.column(atr).visible();
   });
+
+  //----------------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------------------------
+
+  // const inptsFocusArr = Array.from(
+  //   document.querySelectorAll(
+  //     `.checkbox-container input.toggle-vis.new_car.focus`
+  //   )
+  // );
+  // const inptsArr = Array.from(
+  //   document.querySelectorAll(`.checkbox-container input.toggle-vis.new_car`)
+  // );
+  // const startCheckboxes = [
+  //   "recommendation_checkbox",
+  //   "new_car_checkbox",
+  //   "politeness_checkbox",
+  // ];
+
+  // // Відображення колонок по кліку на чекбокс
+  // $(".toggle-vis.new_car").on("click", function (e) {
+  //   const attributesArray = $(this).attr("data-column").split(",");
+  //   const columns = table.columns(attributesArray);
+  //   const inpt = document.querySelector(
+  //     `input.new_car[data-column="${e.currentTarget.dataset.column}"]`
+  //   );
+
+  //   columns.visible(!table.column(attributesArray).visible());
+  //   inpt.checked = table.column(attributesArray).visible();
+
+  //   if (this.id === "all_focus_checkbox") {
+  //     if (this.checked) {
+  //       inptsFocusArr.map((i) => (i.checked = true));
+  //     } else {
+  //       inptsFocusArr.map((i) => (i.checked = false));
+  //     }
+  //   }
+  //   if (this.id === "focus_checkbox") {
+  //     if (this.checked) {
+  //       startCheckboxes.map((i) => {
+  //         const input = document.getElementById(`${i}`);
+  //         input.checked = true;
+  //       });
+  //     } else {
+  //       inptsFocusArr.map((i) => (i.checked = false));
+  //     }
+  //   }
+  // });
+
+  // // Закриття колонок по кліку на заголовок колонок
+  // $(".close-vis.new_car").on("click", function (e) {
+  //   const attributesArray = $(this).attr("data-column").split(",");
+  //   const columns = table.columns(attributesArray);
+  //   const inpt = document.querySelector(
+  //     `input.new_car[data-column="${e.currentTarget.dataset.column}"]`
+  //   );
+
+  //   columns.visible(false);
+  //   inpt.checked = false;
+  //   inptsFocusArr.map((i) => (i.checked = false));
+  // });
+
+  // // Перша загрузка колонок і їх відображення в залежності від того checked input або ні
+  // inptsArr.map((i) => {
+  //   table.columns([i.dataset.column]).visible(i.checked);
+  // });
 });
 
 const qualityExpandBtn = document.querySelector(
@@ -129,11 +239,11 @@ const qualitySectionContent = document.querySelector(
   "section.quality-section .section-content"
 );
 
-const sellingTableBtn = document.querySelector(
-  ".selling-table .selling_table-btn"
+const new_carTableBtn = document.querySelector(
+  ".new_car-table .new_car_table-btn"
 );
-const sellingTableContent = document.querySelector(
-  ".selling-table .table-content"
+const new_carTableContent = document.querySelector(
+  ".new_car-table .table-content"
 );
 
 const serviceTableBtn = document.querySelector(
@@ -157,45 +267,45 @@ function closesContainer(container, button, className) {
 }
 
 closesContainer(qualitySectionContent, qualityExpandBtn, "collapse");
-closesContainer(sellingTableContent, sellingTableBtn, "collapse");
+closesContainer(new_carTableContent, new_carTableBtn, "collapse");
 closesContainer(serviceTableContent, serviceTableBtn, "collapse");
 
 //------------------------------------
 
-const sellingFilterBtn = document.querySelector(
-  ".selling-table .filter_column_btn"
+const new_carFilterBtn = document.querySelector(
+  ".new_car-table .filter_column_btn"
 );
-const sellingFilterWrapper = document.querySelector(
-  ".selling-table .modal_wrapper"
+const new_carFilterWrapper = document.querySelector(
+  ".new_car-table .modal_wrapper"
 );
-const sellingFilterCloseBtn = document.querySelector(
-  ".selling-table .modal_wrapper .close_btn"
-);
-
-const sellingFilterSaveBtn = document.querySelector(
-  ".selling-table .modal_wrapper .save_btn"
+const new_carFilterCloseBtn = document.querySelector(
+  ".new_car-table .modal_wrapper .close_btn"
 );
 
-if (sellingFilterBtn) {
-  sellingFilterBtn.addEventListener("click", () => {
-    sellingFilterWrapper.classList.add("visible");
+const new_carFilterSaveBtn = document.querySelector(
+  ".new_car-table .modal_wrapper .save_btn"
+);
+
+if (new_carFilterBtn) {
+  new_carFilterBtn.addEventListener("click", () => {
+    new_carFilterWrapper.classList.add("visible");
   });
 }
 
-if (sellingFilterWrapper) {
-  sellingFilterWrapper.addEventListener("click", (e) => {
+if (new_carFilterWrapper) {
+  new_carFilterWrapper.addEventListener("click", (e) => {
     if (
-      e.target === sellingFilterWrapper ||
-      e.target === sellingFilterSaveBtn
+      e.target === new_carFilterWrapper ||
+      e.target === new_carFilterSaveBtn
     ) {
-      sellingFilterWrapper.classList.remove("visible");
+      new_carFilterWrapper.classList.remove("visible");
     }
   });
 }
 
-if (sellingFilterCloseBtn) {
-  sellingFilterCloseBtn.addEventListener("click", () => {
-    sellingFilterWrapper.classList.remove("visible");
+if (new_carFilterCloseBtn) {
+  new_carFilterCloseBtn.addEventListener("click", () => {
+    new_carFilterWrapper.classList.remove("visible");
   });
 }
 

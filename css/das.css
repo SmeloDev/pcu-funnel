@@ -11,6 +11,23 @@ button {
     line-height: 1.42;
 }
 
+
+
+:root {
+    --accent-table-color-citroen: #EFC1AF;
+    --accent-table-color-peugeot: #B3DBF6;
+    --accent-table-color-opel: #FEF78D;
+    --accent-table-color-ds: #575757;
+    --table-text-color-black: #444444;
+    --table-text-color-white: #fff;
+
+    /* щоб поміняти колір в таблиці в залежності від обраного бренду просто замінити в перемінних нижче */
+
+    --accent-table-bg-color: var(--accent-table-color-peugeot);
+    --table-border-color: var(--table-text-color-black);
+    --table-text-color: var(--table-text-color-black);
+}
+
 @keyframes tableAnimation {
     0% {
         opacity: 0;
@@ -143,6 +160,7 @@ button {
     font-weight: 600;
     font-size: 14px;
     line-height: 18px;
+    text-transform: uppercase;
 }
 
 .section-content .box-header button {
@@ -201,6 +219,7 @@ button {
 }
 
 .modal_wrapper {
+    padding: 20px 0;
     position: fixed;
     left: 0;
     top: 0;
@@ -219,6 +238,8 @@ button {
 }
 
 .modal_wrapper .modal_container{
+    max-height: 100%;
+    overflow-y: auto;
     padding: 0 20px 20px 20px;
     background-color: #fff;
     animation: tableAnimation 500ms ease;
@@ -231,6 +252,10 @@ button {
     justify-content: space-between;
 
     border-bottom: 1px solid #F4F4F4;
+}
+
+.modal_wrapper .modal_container .modal_heading.top_border {
+    border-top: 1px solid #F4F4F4;
 }
 
 .modal_wrapper .modal_container .modal_heading h5, 
@@ -277,6 +302,7 @@ button {
 .modal_wrapper .modal_container .modal_content {
     margin-top: 20px;
     display: flex;
+    justify-content: space-between;
 }
 
 .modal_wrapper .modal_container .modal_content .checkbox-container{
@@ -332,6 +358,9 @@ button {
 }
 .modal_wrapper .modal_container .modal_content .select-container .select .select-icon i {
     font-size: 12px;
+}
+.modal_wrapper .modal_container .modal_content .select-container .select .select-icon i.fa-crosshairs {
+    font-size: 19px;
 }
 .modal_wrapper .modal_container .modal_content .select-container select {
     width: 100%;
@@ -399,7 +428,8 @@ button {
     border: none;
 }
 
-table.dataTable thead tr.tab th.toggle-vis {
+table.dataTable thead tr.tab th.toggle-vis, 
+table.dataTable thead tr.tab th.close-vis {
     padding: 0;
 
     background: #ECF0F4;
@@ -407,31 +437,42 @@ table.dataTable thead tr.tab th.toggle-vis {
     border-bottom: none;
     cursor: pointer;
 }
-table.dataTable thead tr.tab th.toggle-vis:hover .close {
+table.dataTable thead tr.tab th.toggle-vis:hover .close,
+table.dataTable thead tr.tab th.close-vis:hover .close {
     transform: rotate(360deg);
 }
 
-table.dataTable thead tr.tab th.toggle-vis div {
+table.dataTable thead tr.tab th.toggle-vis div,
+table.dataTable thead tr.tab th.close-vis div {
     display: flex;
     align-items: center;
 }
 
-table.dataTable thead tr.tab th.toggle-vis div .icon {
+table.dataTable thead tr.tab th.toggle-vis div .icon,
+table.dataTable thead tr.tab th.close-vis div .icon {
     width: 45px;
     height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: #223464;
+    background: var(--accent-table-bg-color);
+    border-right: 1px solid var(--table-border-color);
 }
 
-table.dataTable thead tr.tab th.toggle-vis div span {
+table.dataTable thead tr.tab th.toggle-vis div .icon path,
+table.dataTable thead tr.tab th.close-vis div .icon path {
+    fill: var(--table-text-color);
+}
+
+table.dataTable thead tr.tab th.toggle-vis div span,
+table.dataTable thead tr.tab th.close-vis div span{
     margin-left: 10px;
     text-transform: uppercase;
 }
 
-table.dataTable thead tr.tab th.toggle-vis div .close {
+table.dataTable thead tr.tab th.toggle-vis div .close,
+table.dataTable thead tr.tab th.close-vis div .close {
     margin-left: auto;
     transition: transform 700ms ease;
 }
@@ -441,10 +482,33 @@ table.dataTable thead tr.tab th {
 }
 
 table.dataTable thead tr.accent th {
-    background-color: #223464;
-    border: 1px solid #fff;
-    color: #fff;
+    position: relative;
+    background-color: var(--accent-table-bg-color);
+    border: 1px solid var(--table-border-color);
+    color: var(--table-text-color);
+    
 }
+
+table.dataTable thead tr.accent th.focus-tab{
+    padding-right: 0;
+    cursor: pointer;
+}
+
+table.dataTable thead tr.accent th.focus-tab .close{
+    transition: transform 700ms ease;
+    min-width: 24px;
+}
+
+table.dataTable thead tr.accent th.focus-tab:hover .close {
+    transform: rotateZ(360deg);
+}
+
+table.dataTable thead tr.accent th div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>th,
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>td,
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>th,
@@ -517,6 +581,16 @@ span.statistics.bad_number {
 @media screen and (max-width: 1024px) {
     .content-wrapper {
         margin-left: 0;
+    }
+    .modal_wrapper .modal_container .modal_content,
+    .modal_wrapper .modal_container .modal_content .checkbox-container{
+        flex-direction: column;
+    }
+    .modal_wrapper .modal_container .modal_content .select-container .select .select-icon{
+        min-height: 29px;
+    }
+    .modal_wrapper .modal_container .modal_content .select-container .select {
+        margin-bottom: 15px;
     }
 }
 
