@@ -153,83 +153,67 @@ $(document).ready(function () {
     },
   });
 
+  const inptsFocusArr = Array.from(
+    document.querySelectorAll(
+      `.checkbox-container input.toggle-vis.service.focus`
+    )
+  );
+  const inptsArr = Array.from(
+    document.querySelectorAll(`.checkbox-container input.toggle-vis.service`)
+  );
+  const startCheckboxes = [
+    "recommendation_checkbox_service",
+    "new_car_checkbox_service",
+    "politeness_checkbox_service",
+  ];
+
+  // Відображення колонок по кліку на чекбокс
   $(".toggle-vis.service").on("click", function (e) {
-    const atr = $(this).attr("data-column").split(",");
-    const columns = table.columns(atr);
+    const attributesArray = $(this).attr("data-column").split(",");
+    const columns = table.columns(attributesArray);
     const inpt = document.querySelector(
       `input.service[data-column="${e.currentTarget.dataset.column}"]`
     );
 
-    columns.visible(!table.column(atr).visible());
-    inpt.checked = table.column(atr).visible();
+    columns.visible(!table.column(attributesArray).visible());
+    inpt.checked = table.column(attributesArray).visible();
+
+    if (this.id === "all_focus_checkbox_service") {
+      if (this.checked) {
+        inptsFocusArr.map((i) => (i.checked = true));
+      } else {
+        inptsFocusArr.map((i) => (i.checked = false));
+      }
+    }
+    if (this.id === "focus_checkbox_service") {
+      if (this.checked) {
+        startCheckboxes.map((i) => {
+          const input = document.getElementById(`${i}`);
+          input.checked = true;
+        });
+      } else {
+        inptsFocusArr.map((i) => (i.checked = false));
+      }
+    }
   });
 
-  //----------------------------------------------------------------------------------------------
-  //----------------------------------------------------------------------------------------------
-  //----------------------------------------------------------------------------------------------
-  //----------------------------------------------------------------------------------------------
+  // Закриття колонок по кліку на заголовок колонок
+  $(".close-vis.service").on("click", function (e) {
+    const attributesArray = $(this).attr("data-column").split(",");
+    const columns = table.columns(attributesArray);
+    const inpt = document.querySelector(
+      `input.service[data-column="${e.currentTarget.dataset.column}"]`
+    );
 
-  // const inptsFocusArr = Array.from(
-  //   document.querySelectorAll(
-  //     `.checkbox-container input.toggle-vis.new_car.focus`
-  //   )
-  // );
-  // const inptsArr = Array.from(
-  //   document.querySelectorAll(`.checkbox-container input.toggle-vis.new_car`)
-  // );
-  // const startCheckboxes = [
-  //   "recommendation_checkbox",
-  //   "new_car_checkbox",
-  //   "politeness_checkbox",
-  // ];
+    columns.visible(false);
+    inpt.checked = false;
+    inptsFocusArr.map((i) => (i.checked = false));
+  });
 
-  // // Відображення колонок по кліку на чекбокс
-  // $(".toggle-vis.new_car").on("click", function (e) {
-  //   const attributesArray = $(this).attr("data-column").split(",");
-  //   const columns = table.columns(attributesArray);
-  //   const inpt = document.querySelector(
-  //     `input.new_car[data-column="${e.currentTarget.dataset.column}"]`
-  //   );
-
-  //   columns.visible(!table.column(attributesArray).visible());
-  //   inpt.checked = table.column(attributesArray).visible();
-
-  //   if (this.id === "all_focus_checkbox") {
-  //     if (this.checked) {
-  //       inptsFocusArr.map((i) => (i.checked = true));
-  //     } else {
-  //       inptsFocusArr.map((i) => (i.checked = false));
-  //     }
-  //   }
-  //   if (this.id === "focus_checkbox") {
-  //     if (this.checked) {
-  //       startCheckboxes.map((i) => {
-  //         const input = document.getElementById(`${i}`);
-  //         input.checked = true;
-  //       });
-  //     } else {
-  //       inptsFocusArr.map((i) => (i.checked = false));
-  //     }
-  //   }
-  // });
-
-  // // Закриття колонок по кліку на заголовок колонок
-  // $(".close-vis.new_car").on("click", function (e) {
-  //   const attributesArray = $(this).attr("data-column").split(",");
-  //   const columns = table.columns(attributesArray);
-  //   const inpt = document.querySelector(
-  //     `input.new_car[data-column="${e.currentTarget.dataset.column}"]`
-  //   );
-
-  //   columns.visible(false);
-  //   inpt.checked = false;
-  //   inptsFocusArr.map((i) => (i.checked = false));
-  // });
-
-  // // Перша загрузка колонок і їх відображення в залежності від того checked input або ні
-  // inptsArr.map((i) => {
-  //   table.columns([i.dataset.column]).visible(i.checked);
-  // });
+  // Перша загрузка колонок і їх відображення в залежності від того checked input або ні
+  inptsArr.map((i) => {
+    table.columns([i.dataset.column]).visible(i.checked);
+  });
 });
 
 const qualityExpandBtn = document.querySelector(
