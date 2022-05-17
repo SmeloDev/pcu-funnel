@@ -266,7 +266,7 @@ const new_carFilterCloseBtn = document.querySelector(
   ".new_car-table .modal_wrapper .close_btn"
 );
 
-const new_carFilterSaveBtn = document.querySelector(
+const new_carFilterSaveBtn = document.querySelectorAll(
   ".new_car-table .modal_wrapper .save_btn"
 );
 
@@ -280,7 +280,8 @@ if (new_carFilterWrapper) {
   new_carFilterWrapper.addEventListener("click", (e) => {
     if (
       e.target === new_carFilterWrapper ||
-      e.target === new_carFilterSaveBtn
+      e.target === new_carFilterSaveBtn[0] ||
+      e.target === new_carFilterSaveBtn[1]
     ) {
       new_carFilterWrapper.classList.remove("visible");
     }
@@ -305,7 +306,7 @@ const serviceFilterCloseBtn = document.querySelector(
   ".service-table .modal_wrapper .close_btn"
 );
 
-const serviceFilterSaveBtn = document.querySelector(
+const serviceFilterSaveBtn = document.querySelectorAll(
   ".service-table .modal_wrapper .save_btn"
 );
 
@@ -319,7 +320,8 @@ if (serviceFilterWrapper) {
   serviceFilterWrapper.addEventListener("click", (e) => {
     if (
       e.target === serviceFilterWrapper ||
-      e.target === serviceFilterSaveBtn
+      e.target === serviceFilterSaveBtn[0] ||
+      e.target === serviceFilterSaveBtn[1]
     ) {
       serviceFilterWrapper.classList.remove("visible");
     }
