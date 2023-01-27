@@ -75,9 +75,8 @@ body {
 }
 
 .marketing-materials-section .header {
-  padding: 12px 20px;
+  padding: 8px 20px;
   position: relative;
-  min-height: 50px;
   background-color: #223464;
   color: #fff;
 }
@@ -88,16 +87,16 @@ body {
 }
 
 .marketing-materials-section .header .header-btn {
-  height: 35px;
-  width: 35px;
-  padding-top: 2px;
+  height: 23px;
+  width: 23px;
+  padding-top: 1px;
   position: absolute;
   top: 50%;
   right: 25px;
 
   text-align: center;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 900;
   line-height: 1;
   border: 2px solid #fff;
@@ -106,45 +105,78 @@ body {
 
 .marketing-materials-section .content {
   display: flex;
-  padding: 50px;
+  padding: 17px 23px 50px 17px;
   background-color: #fff;
 }
 
 .marketing-materials-section .content .description {
-  max-height: 460px;
   max-width: 40%;
-  padding: 30px 20px;
-  margin-right: 40px;
-  border: 1px solid #a2aaad;
-  border-top: 5px solid #223464;
-}
-.marketing-materials-section .content .description > p {
   font-size: 12px;
-  margin-bottom: 20px;
 }
-.marketing-materials-section .content .description ul,
+.marketing-materials-section .content .description .description-item {
+  padding: 24px 24px 45px 50px;
+  margin-right: 45px;
+  border-top: 5px solid#829FE4;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+.marketing-materials-section .content .description .description-item h5 {
+  position: relative;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.marketing-materials-section .content .description .description-item h5::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: -24px;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.marketing-materials-section .content .description .description-item .list-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marketing-materials-section .content .description .description-item.blue {
+  color: #223464;
+  background-color: #c9d8fc;
+  border-top: 5px solid#829FE4;
+  background-image: url("../data/PencilCircle.png");
+}
+.marketing-materials-section .content .description .description-item.blue h5::before {
+  background-image: url("../data/ChatText_blue.svg");
+}
+
+.marketing-materials-section .content .description .description-item.orange {
+  margin-top: 21px;
+  color: #c8801b;
+  background-color: #fdeed9;
+  border-top: 5px solid#FFE1B8;
+  background-image: url("../data/Money.png");
+}
+
+.marketing-materials-section .content .description .description-item.orange h5::before {
+  background-image: url("../data/ChatText_orange.svg");
+}
+
+.marketing-materials-section .content .description ul {
+  margin-top: 6px;
+  margin-left: 13px;
+}
 .marketing-materials-section .content .accordeon ul {
   list-style: none;
 }
 .marketing-materials-section .content .description ul li {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 44px;
-  padding-left: 75px;
-  margin-bottom: 5px;
-}
-.marketing-materials-section .content .description ul li .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 0;
-  height: 44px;
-  width: 65px;
-  background-color: #223464;
-}
-.marketing-materials-section .content .description ul li p {
+  font-weight: 700;
   font-size: 12px;
 }
 .marketing-materials-section .content .accordeon {
@@ -154,12 +186,46 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 20px 0;
+  margin-bottom: 20px;
+  padding: 8px 16px;
   position: relative;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #444444;
-  border-top: 1px solid #a2aaad;
+  border-top: 3px solid #223364;
+  border-radius: 5px;
+  background-color: #ecf0f4;
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item .marking-text {
+  margin-left: 12px;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 13px;
+  color: #223464;
+  border-radius: 2px;
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item .marking-text.blue {
+  background-color: #c9d8fc;
+}
+.marketing-materials-section .content .accordeon ul li.accordeon-item .marking-text.orange {
+  background-color: #fdeed9;
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item > p {
+  text-transform: uppercase;
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item.last {
+  border-bottom: 1px solid #a2aaad;
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item.last.active {
+  border-bottom: none;
 }
 
 .marketing-materials-section .content .accordeon ul li.accordeon-item.active {
@@ -168,17 +234,13 @@ body {
 
 .marketing-materials-section .content .accordeon ul li.accordeon-item::after {
   position: absolute;
-  right: 0;
+  right: 15px;
   content: "+";
   font-size: 30px;
-  color: #98a0b1;
+  color: #000;
 }
 
-.marketing-materials-section
-  .content
-  .accordeon
-  ul
-  li.accordeon-item.active::after {
+.marketing-materials-section .content .accordeon ul li.accordeon-item.active::after {
   content: "-";
 }
 .accordeon ul li.inner-container {
@@ -188,24 +250,20 @@ body {
   transition: max-height 0.2s ease-out, opacity 0.2s ease;
 }
 
-.marketing-materials-section
-  .content
-  .accordeon
-  ul
-  li.inner-container
-  .flex-container {
+.marketing-materials-section .content .accordeon ul li.inner-container .flex-container {
   display: flex;
   margin-bottom: 20px;
 }
 
 .accordeon ul li.inner-container .folder {
+  padding: 15px;
   width: 220px;
   display: block;
-  margin-right: 50px;
+  margin-right: 23px;
   font-size: 12px;
   text-decoration: none;
   color: #999;
-  border: 1px solid #a2aaad;
+  border: 1px solid #e2e2e2;
   transition: all 500ms ease;
 }
 .accordeon ul li.inner-container .folder:hover,
@@ -213,11 +271,15 @@ body {
   box-shadow: 5px 5px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
-.accordeon ul li.inner-container .folder-icon {
-  padding: 20px;
-}
 .accordeon ul li.inner-container .folder-icon img {
   transition: transform 500ms ease;
+}
+.accordeon ul li.inner-container .folder-icon.blue path {
+  fill: #829fe4;
+}
+
+.accordeon ul li.inner-container .folder-icon.orange path {
+  fill: #ffe1b8;
 }
 .accordeon ul li.inner-container .folder:hover img,
 .accordeon ul li.inner-container .folder:focus img {
@@ -225,8 +287,7 @@ body {
 }
 
 .accordeon ul li.inner-container .folder-content {
-  padding: 20px;
-  background-color: #f4f4f4;
+  margin-top: 8px;
 }
 
 .accordeon ul li.inner-container .folder-content p {
@@ -234,85 +295,94 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 600;
   color: #666;
 }
 
-.folder-content p::after {
-  content: "";
+.folder-content .nth-files {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 5px;
-  width: 23px;
-  height: 23px;
-
-  background-color: #223464;
-  border-radius: 50%;
-  background-image: url("../data/right-arrow.png");
-  background-size: 30%;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 500ms ease;
-}
-.accordeon ul li.inner-container .folder:hover .folder-content p::after,
-.accordeon ul li.inner-container .folder:focus .folder-content p::after {
-  /* transform: translate(10px, 0); */
-  transform: rotateZ(360deg);
-}
-
-.folder-content span.nth-files {
-  margin-right: 80px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .marketing-materials-section .content .accordeon ul li.accordeon-item .icon {
+  width: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 10px;
 }
 
-.accordeon ul li.inner-container .flex-container .access h5 {
+.accordeon ul li.inner-container .access {
+  margin-right: 35px;
+}
+
+.accordeon ul li.inner-container .access div {
+  display: flex;
+}
+
+.accordeon ul li.inner-container .devider {
+  margin: 0 5px;
+}
+
+.accordeon ul li.inner-container .access h5,
+.accordeon ul li.inner-container .instruction h5 {
   position: relative;
-  font-size: 18px;
+  font-size: 10px;
   text-transform: uppercase;
   color: #223464;
 }
 
-.accordeon ul li.inner-container .flex-container .access h5::before {
+.accordeon ul li.inner-container .access h5::before,
+.accordeon ul li.inner-container .instruction h5::before {
   content: "";
   position: absolute;
-  left: -30px;
+  left: -15px;
   display: block;
-  width: 26px;
-  height: 26px;
-  background-image: url("../data/lock.png");
+  width: 12px;
+  height: 12px;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
   background-color: #223464;
 }
 
-.accordeon ul li.inner-container .flex-container .access p {
-  font-size: 16px;
+.accordeon ul li.inner-container .access h5::before {
+  background-image: url("../data/Key.svg");
+}
+
+.accordeon ul li.inner-container .instruction h5::before {
+  background-image: url("../data/CircleWavyQuestion.svg");
+}
+
+.accordeon ul li.inner-container .access p {
+  font-size: 8px;
 }
 .accordeon ul li.inner-container .attention-container {
+  padding: 8px 8px 8px 23px;
+  display: flex;
   position: relative;
-  padding-left: 55px;
   font-size: 14px;
+  background-color: #e2e2e2;
+}
+
+.accordeon ul li.inner-container .instruction span,
+.accordeon ul li.inner-container .instruction a {
+  text-transform: lowercase;
 }
 .accordeon ul li.inner-container p.attention::before {
   position: absolute;
   left: 0;
   content: "!";
-  width: 45px;
-  height: 45px;
+  width: 12px;
+  height: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-size: 30px;
+
   font-weight: bold;
   color: #fff;
   background-color: #223464;
@@ -338,12 +408,7 @@ body {
     margin-bottom: 20px;
     max-width: 100%;
   }
-  .marketing-materials-section
-    .content
-    .accordeon
-    ul
-    li.inner-container
-    .flex-container {
+  .marketing-materials-section .content .accordeon ul li.inner-container .flex-container {
     flex-direction: column;
   }
   .accordeon ul li.inner-container .flex-container .access {
