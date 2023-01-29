@@ -121,7 +121,10 @@ body {
   background-repeat: no-repeat;
   background-position: left bottom;
 }
-
+.marketing-materials-section .content .description .description-item h5,
+.marketing-materials-section .content .description .description-item p {
+  margin: 0;
+}
 .marketing-materials-section .content .description .description-item h5 {
   position: relative;
   font-weight: 600;
