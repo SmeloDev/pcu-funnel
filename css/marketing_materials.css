@@ -82,6 +82,7 @@ body {
 }
 
 .marketing-materials-section .header h3 {
+  margin: 0;
   font-size: 18px;
   font-weight: 500;
 }
@@ -179,6 +180,9 @@ body {
   font-weight: 700;
   font-size: 12px;
 }
+.marketing-materials-section .content .description ul li p {
+  margin: 0;
+}
 .marketing-materials-section .content .accordeon {
   width: 100%;
 }
@@ -218,6 +222,7 @@ body {
 
 .marketing-materials-section .content .accordeon ul li.accordeon-item > p {
   text-transform: uppercase;
+  margin: 0;
 }
 
 .marketing-materials-section .content .accordeon ul li.accordeon-item.last {
@@ -329,6 +334,7 @@ body {
 
 .accordeon ul li.inner-container .access h5,
 .accordeon ul li.inner-container .instruction h5 {
+  margin: 0;
   position: relative;
   font-size: 10px;
   text-transform: uppercase;
@@ -370,6 +376,10 @@ body {
 
 .accordeon ul li.inner-container .instruction span,
 .accordeon ul li.inner-container .instruction a {
+  margin-right: 5px;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 10px;
   text-transform: lowercase;
 }
 .accordeon ul li.inner-container p.attention::before {
