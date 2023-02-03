@@ -421,15 +421,46 @@ body {
     margin-bottom: 20px;
     max-width: 100%;
   }
-  .marketing-materials-section .content .accordeon ul li.inner-container .flex-container {
-    flex-direction: column;
-  }
+
   .accordeon ul li.inner-container .flex-container .access {
     padding-left: 30px;
     margin-top: 10px;
   }
 
+  .marketing-materials-section .content .description .description-item {
+    margin-right: 0;
+  }
+
+  .marketing-materials-section .content .description .description-item .list-container {
+    justify-content: flex-start;
+  }
+  .marketing-materials-section .content .description ul:nth-child(2) {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .marketing-materials-section .content .description .description-item .list-container,
+  .marketing-materials-section .content .accordeon ul li.inner-container .flex-container,
+  .accordeon ul li.inner-container .attention-container {
+    flex-direction: column;
+  }
+
+  .marketing-materials-section .content .description ul:nth-child(2) {
+    margin-left: 13px;
+  }
+
   .accordeon ul li.inner-container .folder {
+    width: 100%;
+    margin-right: 0;
     margin-bottom: 10px;
+  }
+
+  .accordeon ul li.inner-container .attention-container .instruction {
+    margin-top: 20px;
+  }
+
+  .marketing-materials-section .content .accordeon ul li.accordeon-item .marking-text {
+    display: none;
   }
 }
