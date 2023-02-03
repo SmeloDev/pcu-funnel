@@ -316,11 +316,16 @@ body {
 }
 
 .marketing-materials-section .content .accordeon ul li.accordeon-item .icon {
+  height: 34px;
   width: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 10px;
+}
+
+.marketing-materials-section .content .accordeon ul li.accordeon-item .icon img {
+  object-fit: contain;
 }
 
 .accordeon ul li.inner-container .access {
@@ -461,6 +466,12 @@ body {
   }
 
   .marketing-materials-section .content .accordeon ul li.accordeon-item .marking-text {
-    display: none;
+    padding: 3px;
+    margin-left: 6px;
+    font-size: 6px;
+  }
+
+  .marketing-materials-section .content .accordeon ul li.accordeon-item {
+    font-size: 14px;
   }
 }
