@@ -1,0 +1,499 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body,
+button {
+  margin: 0;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  line-height: 1.42;
+}
+
+:root {
+  --accent-table-color-citroen: #efc1af;
+  --accent-table-color-peugeot: #b3dbf6;
+  --accent-table-color-opel: #fef78d;
+  --accent-table-color-ds: #575757;
+  --table-text-color-black: #444444;
+  --table-text-color-white: #fff;
+
+  /* щоб поміняти колір в таблиці в залежності від обраного бренду просто замінити в перемінних нижче */
+  /* для всіх крім бренду DS просто міняється backgound а для DS ще треба поміняти колір шрифта і border на білий (--table-text-color-white) */
+
+  --accent-table-bg-color: var(--accent-table-color-peugeot);
+  --table-border-color: var(--table-text-color-black);
+  --table-text-color: var(--table-text-color-black);
+}
+
+@keyframes tableAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translate(0, -20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes openWrapper {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translate(100%, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translate(-100%, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.collapse {
+  display: none;
+}
+
+.content-wrapper {
+  min-height: 100vh;
+
+  margin-left: 230px;
+  padding-top: 70px;
+  padding-bottom: 40px;
+
+  background-color: #ecf0f5;
+  z-index: 800;
+}
+
+.quality-section {
+  margin: 20px 20px 5px 20px;
+
+  background-color: #fff;
+}
+
+.section-heading {
+  padding: 6px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #223464;
+}
+
+.section-heading h4 {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+
+  color: #fff;
+
+  animation: slideRight 1000ms ease;
+}
+
+.section-heading .button-container {
+  display: flex;
+  animation: slideLeft 1000ms ease;
+}
+
+.section-heading .button {
+  height: 23px;
+  width: 23px;
+  margin: 5px;
+
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 900;
+  border: 2px solid #fff;
+  transition: transform 400ms ease;
+}
+
+.section-heading .button:hover,
+.section-heading .button:focus {
+  transform: scale(1.1);
+}
+
+.section-content {
+  min-height: 110px;
+  padding: 10px;
+  background-color: #ecf0f5;
+  /* display: flex;
+    align-items: center; */
+}
+
+.section-content .table {
+  margin-bottom: 40px;
+  animation: tableAnimation 2000ms ease;
+}
+
+.section-content .box-header {
+  padding: 5px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #fff;
+  border-top: 3px solid #223364;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.section-content .box-header button {
+  padding: 5px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  background: transparent;
+  color: #97a0b3;
+}
+
+i.fa.fa-file-o {
+  font-size: 14px !important;
+  color: #223464 !important;
+  vertical-align: top;
+  line-height: 120%;
+  margin-right: 5px;
+}
+
+.table-heading i.fa {
+  margin-right: 5px;
+}
+
+.table-heading i.fa::before {
+  content: "\f15b";
+}
+
+.section-content .table .table-content {
+  position: relative;
+  padding: 10px;
+  animation: tableAnimation 1500ms ease;
+  transform-origin: top center;
+
+  background-color: #fff;
+}
+
+.section-content .table .table-content .filter_column_btn {
+  /* width: 31px; */
+  height: 31px;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #223464;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.section-content .table .table-content .filter_column_btn .filter_icon {
+  width: 31px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #223464;
+}
+
+.section-content .table .table-content .filter_column_btn span {
+  margin: 0 10px;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.table .dataTables_wrapper .dataTables_filter {
+  display: none;
+  margin-bottom: 30px;
+}
+
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+  padding: 6px 8px !important;
+  border-radius: 0 !important;
+  border: 1px solid #223364 !important;
+  outline: none;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.table .table-content table {
+  text-align: left;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 15px;
+  border-collapse: collapse;
+}
+
+.table-content table.dataTable thead th,
+.table-content table.dataTable thead td {
+  padding: 5px 20px 5px 10px;
+  text-align: left;
+  color: #223464;
+  background-color: #ecf0f4;
+  border: 1px solid #223464;
+}
+
+.table-content table.dataTable thead th.empty-cell {
+  background-color: #fff;
+  border: none;
+}
+
+table.dataTable thead tr.tab th.toggle-vis,
+table.dataTable thead tr.tab th.close-vis {
+  padding: 0;
+
+  background: #ecf0f4;
+  border: 1px solid #223464;
+  border-bottom: none;
+  cursor: pointer;
+}
+table.dataTable thead tr.tab th.toggle-vis:hover .close,
+table.dataTable thead tr.tab th.close-vis:hover .close {
+  transform: rotate(360deg);
+}
+
+table.dataTable thead tr.tab th.toggle-vis div,
+table.dataTable thead tr.tab th.close-vis div {
+  display: flex;
+  align-items: center;
+}
+
+table.dataTable thead tr.tab th.toggle-vis div .icon,
+table.dataTable thead tr.tab th.close-vis div .icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--accent-table-bg-color);
+  border-right: 1px solid var(--table-border-color);
+}
+
+table.dataTable thead tr.tab th.toggle-vis div .icon path,
+table.dataTable thead tr.tab th.close-vis div .icon path {
+  fill: var(--table-text-color);
+}
+
+table.dataTable thead tr.tab th.toggle-vis div span,
+table.dataTable thead tr.tab th.close-vis div span {
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+
+table.dataTable thead tr.tab th.toggle-vis div .close,
+table.dataTable thead tr.tab th.close-vis div .close {
+  margin-left: auto;
+  transition: transform 700ms ease;
+}
+
+table.dataTable thead tr.tab th {
+  border-bottom: none;
+}
+
+table.dataTable thead tr.accent th {
+  position: relative;
+  background-color: var(--accent-table-bg-color);
+  border: 1px solid var(--table-border-color);
+  color: var(--table-text-color);
+}
+
+table.dataTable thead tr.accent th.focus-tab {
+  padding-right: 0;
+  cursor: pointer;
+}
+
+table.dataTable thead tr.accent th.focus-tab .close {
+  transition: transform 700ms ease;
+  min-width: 24px;
+}
+
+table.dataTable thead tr.accent th.focus-tab:hover .close {
+  transform: rotateZ(360deg);
+}
+.accent_column {
+  background-color: #48a0db;
+  color: #fff;
+}
+table.dataTable thead tr.accent th div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > thead > tr > th,
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > thead > tr > td,
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > th,
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td {
+  text-align: center;
+}
+span.statistics {
+  padding: 0 4px;
+  border-radius: 3px;
+}
+span.statistics.good_number {
+  background-color: #59c076;
+}
+
+span.statistics.bad_number {
+  background-color: #fb5959;
+}
+
+.table .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.table .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  color: #fff !important;
+  border: 1px solid rgb(47, 39, 38);
+  background: rgb(47, 39, 38);
+}
+
+.table .dataTables_wrapper .dataTables_paginate .paginate_button {
+  font-size: 12px;
+}
+
+.dataTables_scrollHead thead .popup::before {
+  content: attr(data-popup);
+  position: absolute;
+  transform: translate(100%, 0);
+  padding: 5px 10px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.25;
+  color: #fff;
+  background-color: #223464;
+  border: 1px solid #223464;
+  opacity: 0;
+  transition: all 400ms ease;
+  pointer-events: none;
+  /* z-index: 100; */
+}
+.dataTables_scrollHead thead .popup:hover::before {
+  opacity: 1;
+}
+.table table.dataTable thead .sorting {
+  background-image: url("../data/sorting_icon.svg") !important;
+  background-size: 12px;
+}
+.table table.dataTable thead .sorting_asc {
+  background-image: url("../data/sorting_asc_icon.svg") !important;
+  background-size: 7px;
+}
+.table table.dataTable thead .sorting_desc {
+  background-image: url("../data/sorting_desc_icon.svg") !important;
+  background-size: 7px;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+  .content-wrapper {
+    margin-left: 0;
+  }
+  .modal_wrapper .modal_container .modal_content,
+  .modal_wrapper .modal_container .modal_content .checkbox-container {
+    flex-direction: column;
+  }
+  .modal_wrapper .modal_container .modal_content .select-container .select .select-icon {
+    min-height: 29px;
+  }
+  .modal_wrapper .modal_container .modal_content .select-container .select {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .content-wrapper {
+    margin-left: 150px;
+  }
+}
+
+#age_of_stock_wrapper {
+  margin: 40px 0;
+}
+
+.chart-section {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.chart-1,
+.chart-2 {
+  padding: 10px;
+  width: 45%;
+  min-height: 340px;
+}
+
+.chart-3,
+.chart-4 {
+  padding: 5px;
+  width: 25%;
+  min-height: 300px;
+}
+
+.chart-5 {
+  padding: 5px;
+  width: 50%;
+  min-height: 340px;
+}
+
+#myChart {
+  width: 100%;
+}
+
+.select {
+  width: 10%;
+}
+select#dealer,
+select#year {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #223364;
+
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
