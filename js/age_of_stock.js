@@ -188,10 +188,75 @@ $(document).ready(function () {
       { data: "total" },
       { data: "percent" },
     ],
-    // columnDefs: [{ className: "accent_column", targets: [9, 16] }],
     scrollX: true,
     paging: false,
     info: false,
+    footerCallback: function (row, data, start, end, display) {
+      var api = this.api();
+
+      // Remove the formatting to get integer data for summation
+      var intVal = function (i) {
+        return typeof i === "string" ? i.replace(/[\$,]/g, "") * 1 : typeof i === "number" ? i : 0;
+      };
+
+      // Update footer
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].forEach((i) => {
+        $(api.column(i).footer()).html(
+          api
+            .column(i, { page: "current" })
+            .data()
+            .reduce(function (a, b) {
+              return intVal(a) + intVal(b);
+            }, 0)
+        );
+      });
+    },
+  });
+});
+
+$(document).ready(function () {
+  const table = $("#mix_version_2").DataTable({
+    data: data_2,
+    columns: [
+      { data: "model" },
+      { data: "feb" },
+      { data: "jan" },
+      { data: "mar" },
+      { data: "apr" },
+      { data: "may" },
+      { data: "june" },
+      { data: "jul" },
+      { data: "aug" },
+      { data: "sept" },
+      { data: "oct" },
+      { data: "nov" },
+      { data: "dec" },
+      { data: "total" },
+      { data: "percent" },
+    ],
+    scrollX: true,
+    paging: false,
+    info: false,
+    footerCallback: function (row, data, start, end, display) {
+      var api = this.api();
+
+      // Remove the formatting to get integer data for summation
+      var intVal = function (i) {
+        return typeof i === "string" ? i.replace(/[\$,]/g, "") * 1 : typeof i === "number" ? i : 0;
+      };
+
+      // Update footer
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].forEach((i) => {
+        $(api.column(i).footer()).html(
+          api
+            .column(i, { page: "current" })
+            .data()
+            .reduce(function (a, b) {
+              return intVal(a) + intVal(b);
+            }, 0)
+        );
+      });
+    },
   });
 });
 
@@ -221,7 +286,7 @@ closesContainer(qualitySectionContent, qualityExpandBtn, "collapse");
 closesContainer(new_carTableContent, new_carTableBtn, "collapse");
 closesContainer(serviceTableContent, serviceTableBtn, "collapse");
 
-// ---------------------------------------------------
+// --------------------Charts-------------------------
 
 const ctx_1 = document.getElementById("myChart_1");
 const ctx_2 = document.getElementById("myChart_2");
@@ -273,9 +338,13 @@ new Chart(ctx_1, {
     ],
   },
   options: {
-    scales: {
-      y: {
-        beginAtZero: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Gistochart 1",
+      },
+      legend: {
+        display: false,
       },
     },
   },
@@ -304,9 +373,13 @@ new Chart(ctx_2, {
     ],
   },
   options: {
-    scales: {
-      y: {
-        beginAtZero: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Gistochart 2",
+      },
+      legend: {
+        display: false,
       },
     },
   },
@@ -327,6 +400,11 @@ new Chart(ctx_3, {
   },
   options: {
     plugins: {
+      title: {
+        align: "start",
+        display: true,
+        text: "Mix Engine",
+      },
       legend: {
         display: true,
         position: "right",
@@ -350,9 +428,42 @@ new Chart(ctx_4, {
   },
   options: {
     plugins: {
+      title: {
+        align: "start",
+        display: true,
+        text: "Mix VP/VU",
+      },
       legend: {
         display: true,
         position: "right",
+      },
+    },
+  },
+});
+
+new Chart(ctx_5, {
+  type: "bar",
+  data: {
+    labels: chartData_1.map((row) => row.model),
+
+    datasets: [
+      {
+        label: "Dataset 1",
+        data: chartData_1.map((row) => row.count_1),
+        borderWidth: 1,
+        backgroundColor: "#223464",
+        stack: "Stack 0",
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: "Models",
+      },
+      legend: {
+        display: false,
       },
     },
   },
