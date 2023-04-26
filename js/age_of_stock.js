@@ -24,7 +24,7 @@ const data_1 = [
     sales_2: "",
     sales_1: "",
     sales_0: "",
-    contracts: "",
+    contracts: "1",
     age_of_stock_90_120: "",
     age_of_stock_120_180: "23",
     age_of_stock_180plus: "",
@@ -54,7 +54,7 @@ const data_1 = [
     sales_2: "1",
     sales_1: "1",
     sales_0: "",
-    contracts: "",
+    contracts: "2",
     age_of_stock_90_120: "23",
     age_of_stock_120_180: "23",
     age_of_stock_180plus: "",
@@ -84,7 +84,97 @@ const data_1 = [
     sales_2: "",
     sales_1: "",
     sales_0: "",
-    contracts: "",
+    contracts: "3",
+    age_of_stock_90_120: "23",
+    age_of_stock_120_180: "23",
+    age_of_stock_180plus: "",
+  },
+  {
+    model: "C3",
+    comendo: "1CLEF1234",
+    equipment: "NEW C4 PT 100 MT6 LIVE",
+    all_years_stock_2: "",
+    all_years_stock_3: "",
+    all_years_stock_4t: "9",
+    all_years_stock_4c: "",
+    all_years_stock_5: "",
+    all_years_stock_6: "9",
+    all_years_stock_total: "18",
+    stock_prev_years_2: "1",
+    stock_prev_years_3: "",
+    stock_prev_years_4tr: "",
+    stock_prev_years_4c: "8",
+    stock_prev_years_5: "3",
+    stock_prev_years_6: "",
+    stock_prev_years_total: "13",
+    sales_6: "1",
+    sales_5: "",
+    sales_4: "",
+    sales_3: "1",
+    sales_2: "",
+    sales_1: "",
+    sales_0: "",
+    contracts: "1",
+    age_of_stock_90_120: "",
+    age_of_stock_120_180: "23",
+    age_of_stock_180plus: "",
+  },
+  {
+    model: "C3",
+    comendo: "1CLEF1234",
+    equipment: "NEW C4 PT 155 EAT Feel",
+    all_years_stock_2: "4",
+    all_years_stock_3: "9",
+    all_years_stock_4t: "",
+    all_years_stock_4c: "",
+    all_years_stock_5: "",
+    all_years_stock_6: "2",
+    all_years_stock_total: "15",
+    stock_prev_years_2: "",
+    stock_prev_years_3: "4",
+    stock_prev_years_4tr: "4",
+    stock_prev_years_4c: "",
+    stock_prev_years_5: "",
+    stock_prev_years_6: "",
+    stock_prev_years_total: "11",
+    sales_6: "",
+    sales_5: "1",
+    sales_4: "",
+    sales_3: "1",
+    sales_2: "1",
+    sales_1: "1",
+    sales_0: "",
+    contracts: "2",
+    age_of_stock_90_120: "23",
+    age_of_stock_120_180: "23",
+    age_of_stock_180plus: "",
+  },
+  {
+    model: "C3",
+    comendo: "1CLEF1234",
+    equipment: "NEW C4 1.2 PT 130 ATB Feel",
+    all_years_stock_2: "7",
+    all_years_stock_3: "",
+    all_years_stock_4t: "",
+    all_years_stock_4c: "9",
+    all_years_stock_5: "",
+    all_years_stock_6: "1",
+    all_years_stock_total: "17",
+    stock_prev_years_2: "5",
+    stock_prev_years_3: "",
+    stock_prev_years_4tr: "",
+    stock_prev_years_4c: "",
+    stock_prev_years_5: "",
+    stock_prev_years_6: "3",
+    stock_prev_years_total: "8",
+    sales_6: "1",
+    sales_5: "",
+    sales_4: "",
+    sales_3: "1",
+    sales_2: "",
+    sales_1: "",
+    sales_0: "",
+    contracts: "3",
     age_of_stock_90_120: "23",
     age_of_stock_120_180: "23",
     age_of_stock_180plus: "",
@@ -130,6 +220,7 @@ const data_2 = [
 
 $(document).ready(function () {
   const table = $("#age_of_stock").DataTable({
+    ordering: false,
     data: data_1,
     columns: [
       { data: "model" },
@@ -161,7 +252,7 @@ $(document).ready(function () {
       { data: "age_of_stock_120_180" },
       { data: "age_of_stock_180plus" },
     ],
-    columnDefs: [{ className: "accent_column", targets: [9, 16] }],
+    columnDefs: [{ className: "accent_column", targets: [9, 16, 24] }],
     scrollX: true,
     paging: false,
     info: false,
@@ -170,6 +261,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   const table = $("#mix_version_1").DataTable({
+    ordering: false,
     data: data_2,
     columns: [
       { data: "model" },
@@ -216,6 +308,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   const table = $("#mix_version_2").DataTable({
+    ordering: false,
     data: data_2,
     columns: [
       { data: "model" },
@@ -315,6 +408,15 @@ const chartData_1 = [
   { model: "BOXER", count_1: 28, count_2: 37 },
 ];
 
+const chartData_2 = [
+  { status: "2", count_1: 10, count_2: 15 },
+  { status: "3", count_1: 20, count_2: 23 },
+  { status: "4.T", count_1: 15, count_2: 20 },
+  { status: "4.C", count_1: 25, count_2: 34 },
+  { status: "5", count_1: 22, count_2: 24 },
+  { status: "6.9", count_1: 30, count_2: 35 },
+];
+
 new Chart(ctx_1, {
   type: "bar",
   data: {
@@ -341,7 +443,7 @@ new Chart(ctx_1, {
     plugins: {
       title: {
         display: true,
-        text: "Gistochart 1",
+        text: "Stock 3.1-6.9",
       },
       legend: {
         display: false,
@@ -353,7 +455,7 @@ new Chart(ctx_1, {
 new Chart(ctx_2, {
   type: "bar",
   data: {
-    labels: chartData_1.map((row) => row.model),
+    labels: chartData_2.map((row) => row.status),
 
     datasets: [
       {
@@ -376,7 +478,7 @@ new Chart(ctx_2, {
     plugins: {
       title: {
         display: true,
-        text: "Gistochart 2",
+        text: "Stock by logistic status",
       },
       legend: {
         display: false,
@@ -393,7 +495,7 @@ new Chart(ctx_3, {
       {
         label: "Mix Engine",
         data: [300, 50, 100, 40],
-        backgroundColor: ["#223464", "#59C076", "#657DEB", "#FB896B"],
+        backgroundColor: ["#48A0DB", "#59C076", "#657DEB", "#FB896B"],
         hoverOffset: 4,
       },
     ],
@@ -416,12 +518,12 @@ new Chart(ctx_3, {
 new Chart(ctx_4, {
   type: "doughnut",
   data: {
-    labels: ["Diesel", "Petrol"],
+    labels: ["VU", "VP"],
     datasets: [
       {
         label: "Mix VP/VU",
         data: [300, 50],
-        backgroundColor: ["#223464", "#FB896B"],
+        backgroundColor: ["#48A0DB", "#FB896B"],
         hoverOffset: 4,
       },
     ],
@@ -451,7 +553,7 @@ new Chart(ctx_5, {
         label: "Dataset 1",
         data: chartData_1.map((row) => row.count_1),
         borderWidth: 1,
-        backgroundColor: "#223464",
+        backgroundColor: "#48A0DB",
         stack: "Stack 0",
       },
     ],
