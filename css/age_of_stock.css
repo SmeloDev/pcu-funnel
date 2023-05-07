@@ -467,10 +467,18 @@ span.statistics.bad_number {
 
 .chart-1,
 .chart-2 {
+  width: 100%;
   padding: 10px;
-  width: 45%;
-  min-height: 340px;
+  /* min-height: 200px; */
 }
+
+/* .chart-1 {
+  width: 49%;
+}
+
+.chart-2 {
+  width: 41%;
+} */
 
 .chart-3,
 .chart-4 {
@@ -490,7 +498,8 @@ span.statistics.bad_number {
 }
 
 .select {
-  width: 10%;
+  padding: 0 10px;
+  width: 50%;
 }
 select#dealer,
 select#year {
@@ -547,6 +556,24 @@ select#year {
 
 .button-container .export-btn {
   margin-left: 12px;
+}
+
+/* table.dataTable#age_of_stock tr.dtrg-group th {
+  background-color: #48a0db;
+  color: #fff;
+} */
+
+.chart-container {
+  width: 50%;
+}
+table.dataTable#mix_version_2 tr.dtrg-group th {
+  background-color: #fb896b;
+  color: #fff;
+  padding: 0;
+}
+
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.text_align_left {
+  text-align: left;
 }
 
 @media screen and (min-width: 1440px) {

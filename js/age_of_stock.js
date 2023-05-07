@@ -1,5 +1,6 @@
 const data_1 = [
   {
+    group: "C4",
     model: "C4",
     comendo: "1CLEF1234",
     equipment: "NEW C4 PT 100 MT6 LIVE",
@@ -7,14 +8,16 @@ const data_1 = [
     all_years_stock_3: "",
     all_years_stock_4t: "9",
     all_years_stock_4c: "",
-    all_years_stock_5: "",
+    all_years_stock_5_1: "",
+    all_years_stock_5_9: "",
     all_years_stock_6: "9",
     all_years_stock_total: "18",
     stock_prev_years_2: "1",
     stock_prev_years_3: "",
-    stock_prev_years_4tr: "",
+    stock_prev_years_4t: "",
     stock_prev_years_4c: "8",
-    stock_prev_years_5: "3",
+    stock_prev_years_5_1: "3",
+    stock_prev_years_5_9: "5",
     stock_prev_years_6: "",
     stock_prev_years_total: "13",
     sales_6: "1",
@@ -30,6 +33,7 @@ const data_1 = [
     age_of_stock_180plus: "",
   },
   {
+    group: "C4",
     model: "C4",
     comendo: "1CLEF1234",
     equipment: "NEW C4 PT 155 EAT Feel",
@@ -37,14 +41,16 @@ const data_1 = [
     all_years_stock_3: "9",
     all_years_stock_4t: "",
     all_years_stock_4c: "",
-    all_years_stock_5: "",
+    all_years_stock_5_1: "",
+    all_years_stock_5_9: "",
     all_years_stock_6: "2",
     all_years_stock_total: "15",
     stock_prev_years_2: "",
     stock_prev_years_3: "4",
-    stock_prev_years_4tr: "4",
+    stock_prev_years_4t: "4",
     stock_prev_years_4c: "",
-    stock_prev_years_5: "",
+    stock_prev_years_5_1: "",
+    stock_prev_years_5_9: "",
     stock_prev_years_6: "",
     stock_prev_years_total: "11",
     sales_6: "",
@@ -60,36 +66,40 @@ const data_1 = [
     age_of_stock_180plus: "",
   },
   {
-    model: "C4",
-    comendo: "1CLEF1234",
-    equipment: "NEW C4 1.2 PT 130 ATB Feel",
-    all_years_stock_2: "7",
-    all_years_stock_3: "",
-    all_years_stock_4t: "",
+    group: "C4",
+    model: "Total",
+    comendo: "",
+    equipment: "",
+    all_years_stock_2: "10",
+    all_years_stock_3: "12",
+    all_years_stock_4t: "11",
     all_years_stock_4c: "9",
-    all_years_stock_5: "",
-    all_years_stock_6: "1",
+    all_years_stock_5_1: "15",
+    all_years_stock_5_9: "11",
+    all_years_stock_6: "15",
     all_years_stock_total: "17",
     stock_prev_years_2: "5",
-    stock_prev_years_3: "",
-    stock_prev_years_4tr: "",
-    stock_prev_years_4c: "",
-    stock_prev_years_5: "",
+    stock_prev_years_3: "8",
+    stock_prev_years_4t: "7",
+    stock_prev_years_4c: "6",
+    stock_prev_years_5_1: "9",
+    stock_prev_years_5_9: "9",
     stock_prev_years_6: "3",
     stock_prev_years_total: "8",
     sales_6: "1",
-    sales_5: "",
-    sales_4: "",
-    sales_3: "1",
-    sales_2: "",
-    sales_1: "",
-    sales_0: "",
+    sales_5: "67",
+    sales_4: "4",
+    sales_3: "5",
+    sales_2: "8",
+    sales_1: "35",
+    sales_0: "6",
     contracts: "3",
     age_of_stock_90_120: "23",
     age_of_stock_120_180: "23",
-    age_of_stock_180plus: "",
+    age_of_stock_180plus: "8",
   },
   {
+    group: "C3",
     model: "C3",
     comendo: "1CLEF1234",
     equipment: "NEW C4 PT 100 MT6 LIVE",
@@ -97,14 +107,16 @@ const data_1 = [
     all_years_stock_3: "",
     all_years_stock_4t: "9",
     all_years_stock_4c: "",
-    all_years_stock_5: "",
+    all_years_stock_5_1: "",
+    all_years_stock_5_9: "",
     all_years_stock_6: "9",
     all_years_stock_total: "18",
     stock_prev_years_2: "1",
     stock_prev_years_3: "",
-    stock_prev_years_4tr: "",
+    stock_prev_years_4t: "",
     stock_prev_years_4c: "8",
-    stock_prev_years_5: "3",
+    stock_prev_years_5_1: "3",
+    stock_prev_years_5_9: "5",
     stock_prev_years_6: "",
     stock_prev_years_total: "13",
     sales_6: "1",
@@ -120,6 +132,7 @@ const data_1 = [
     age_of_stock_180plus: "",
   },
   {
+    group: "C3",
     model: "C3",
     comendo: "1CLEF1234",
     equipment: "NEW C4 PT 155 EAT Feel",
@@ -127,14 +140,16 @@ const data_1 = [
     all_years_stock_3: "9",
     all_years_stock_4t: "",
     all_years_stock_4c: "",
-    all_years_stock_5: "",
+    all_years_stock_5_1: "",
+    all_years_stock_5_9: "",
     all_years_stock_6: "2",
     all_years_stock_total: "15",
     stock_prev_years_2: "",
     stock_prev_years_3: "4",
-    stock_prev_years_4tr: "4",
+    stock_prev_years_4t: "4",
     stock_prev_years_4c: "",
-    stock_prev_years_5: "",
+    stock_prev_years_5_1: "",
+    stock_prev_years_5_9: "",
     stock_prev_years_6: "",
     stock_prev_years_total: "11",
     sales_6: "",
@@ -150,39 +165,43 @@ const data_1 = [
     age_of_stock_180plus: "",
   },
   {
-    model: "C3",
-    comendo: "1CLEF1234",
-    equipment: "NEW C4 1.2 PT 130 ATB Feel",
-    all_years_stock_2: "7",
-    all_years_stock_3: "",
-    all_years_stock_4t: "",
+    group: "C3",
+    model: "Total",
+    comendo: "",
+    equipment: "",
+    all_years_stock_2: "10",
+    all_years_stock_3: "12",
+    all_years_stock_4t: "11",
     all_years_stock_4c: "9",
-    all_years_stock_5: "",
-    all_years_stock_6: "1",
+    all_years_stock_5_1: "15",
+    all_years_stock_5_9: "11",
+    all_years_stock_6: "15",
     all_years_stock_total: "17",
     stock_prev_years_2: "5",
-    stock_prev_years_3: "",
-    stock_prev_years_4tr: "",
-    stock_prev_years_4c: "",
-    stock_prev_years_5: "",
+    stock_prev_years_3: "8",
+    stock_prev_years_4t: "7",
+    stock_prev_years_4c: "6",
+    stock_prev_years_5_1: "9",
+    stock_prev_years_5_9: "9",
     stock_prev_years_6: "3",
     stock_prev_years_total: "8",
     sales_6: "1",
-    sales_5: "",
-    sales_4: "",
-    sales_3: "1",
-    sales_2: "",
-    sales_1: "",
-    sales_0: "",
+    sales_5: "67",
+    sales_4: "4",
+    sales_3: "5",
+    sales_2: "8",
+    sales_1: "35",
+    sales_0: "6",
     contracts: "3",
     age_of_stock_90_120: "23",
     age_of_stock_120_180: "23",
-    age_of_stock_180plus: "",
+    age_of_stock_180plus: "8",
   },
 ];
 
 const data_2 = [
   {
+    group: "2008",
     model: "2008",
     jan: "0",
     feb: "34",
@@ -200,7 +219,173 @@ const data_2 = [
     percent: "9.7%",
   },
   {
+    group: "2008",
+    model: "2008",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "9.7%",
+  },
+  {
+    group: "2008",
+    model: "2008",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "9.7%",
+  },
+  {
+    group: "308",
     model: "308",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "1.7%",
+  },
+  {
+    group: "308",
+    model: "308",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "1.7%",
+  },
+];
+
+const data_3 = [
+  {
+    group: "2008",
+    model: "2008",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "9.7%",
+  },
+  {
+    group: "2008",
+    model: "2008",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "9.7%",
+  },
+  {
+    group: "2008",
+    model: "Total 2008",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "9.7%",
+  },
+  {
+    group: "308",
+    model: "308",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "1.7%",
+  },
+  {
+    group: "308",
+    model: "308",
+    jan: "0",
+    feb: "34",
+    mar: "23",
+    apr: "12",
+    may: "45",
+    june: "4",
+    jul: "45",
+    aug: "12",
+    sept: "45",
+    oct: "4",
+    nov: "45",
+    dec: "3",
+    total: "234",
+    percent: "1.7%",
+  },
+  {
+    group: "308",
+    model: "Total 308",
     jan: "0",
     feb: "34",
     mar: "23",
@@ -220,6 +405,9 @@ const data_2 = [
 
 $(document).ready(function () {
   const table = $("#age_of_stock").DataTable({
+    rowGroup: {
+      dataSrc: "group",
+    },
     ordering: false,
     data: data_1,
     columns: [
@@ -230,14 +418,16 @@ $(document).ready(function () {
       { data: "all_years_stock_3" },
       { data: "all_years_stock_4t" },
       { data: "all_years_stock_4c" },
-      { data: "all_years_stock_5" },
+      { data: "all_years_stock_5_1" },
+      { data: "all_years_stock_5_9" },
       { data: "all_years_stock_6" },
       { data: "all_years_stock_total" },
       { data: "stock_prev_years_2" },
       { data: "stock_prev_years_3" },
-      { data: "stock_prev_years_4tr" },
+      { data: "stock_prev_years_4t" },
       { data: "stock_prev_years_4c" },
-      { data: "stock_prev_years_5" },
+      { data: "stock_prev_years_5_1" },
+      { data: "stock_prev_years_5_9" },
       { data: "stock_prev_years_6" },
       { data: "stock_prev_years_total" },
       { data: "sales_6" },
@@ -252,10 +442,36 @@ $(document).ready(function () {
       { data: "age_of_stock_120_180" },
       { data: "age_of_stock_180plus" },
     ],
-    columnDefs: [{ className: "accent_column", targets: [9, 16, 24] }],
+    columnDefs: [
+      { className: "accent_column", targets: [10, 18, 26] },
+      { className: "text_align_left", targets: [2] },
+    ],
     scrollX: true,
     paging: false,
     info: false,
+    footerCallback: function (row, data, start, end, display) {
+      var api = this.api();
+      const currentColumns = [
+        3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+      ];
+
+      // Remove the formatting to get integer data for summation
+      var intVal = function (i) {
+        return typeof i === "string" ? i.replace(/[\$,]/g, "") * 1 : typeof i === "number" ? i : 0;
+      };
+
+      // Update footer
+      currentColumns.forEach((i) => {
+        $(api.column(i).footer()).html(
+          api
+            .column(i, { page: "current" })
+            .data()
+            .reduce(function (a, b) {
+              return intVal(a) + intVal(b);
+            }, 0)
+        );
+      });
+    },
   });
 });
 
@@ -285,6 +501,7 @@ $(document).ready(function () {
     info: false,
     footerCallback: function (row, data, start, end, display) {
       var api = this.api();
+      const currentColumns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
       // Remove the formatting to get integer data for summation
       var intVal = function (i) {
@@ -292,7 +509,7 @@ $(document).ready(function () {
       };
 
       // Update footer
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].forEach((i) => {
+      currentColumns.forEach((i) => {
         $(api.column(i).footer()).html(
           api
             .column(i, { page: "current" })
@@ -308,8 +525,11 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   const table = $("#mix_version_2").DataTable({
+    rowGroup: {
+      dataSrc: "group",
+    },
     ordering: false,
-    data: data_2,
+    data: data_3,
     columns: [
       { data: "model" },
       { data: "feb" },
@@ -332,6 +552,7 @@ $(document).ready(function () {
     info: false,
     footerCallback: function (row, data, start, end, display) {
       var api = this.api();
+      const currentColumns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
       // Remove the formatting to get integer data for summation
       var intVal = function (i) {
@@ -339,7 +560,7 @@ $(document).ready(function () {
       };
 
       // Update footer
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].forEach((i) => {
+      currentColumns.forEach((i) => {
         $(api.column(i).footer()).html(
           api
             .column(i, { page: "current" })
@@ -413,7 +634,8 @@ const chartData_2 = [
   { status: "3", count_1: 20, count_2: 23 },
   { status: "4.T", count_1: 15, count_2: 20 },
   { status: "4.C", count_1: 25, count_2: 34 },
-  { status: "5", count_1: 22, count_2: 24 },
+  { status: "5.1", count_1: 22, count_2: 24 },
+  { status: "5.9", count_1: 22, count_2: 24 },
   { status: "6.9", count_1: 30, count_2: 35 },
 ];
 
