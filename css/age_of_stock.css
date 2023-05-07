@@ -469,16 +469,12 @@ span.statistics.bad_number {
 .chart-2 {
   width: 100%;
   padding: 10px;
-  /* min-height: 200px; */
-}
-
-/* .chart-1 {
-  width: 49%;
 }
 
 .chart-2 {
-  width: 41%;
-} */
+  width: 84%;
+  margin: 0 auto;
+}
 
 .chart-3,
 .chart-4 {
@@ -501,6 +497,7 @@ span.statistics.bad_number {
   padding: 0 10px;
   width: 50%;
 }
+
 select#dealer,
 select#year {
   padding: 5px;
