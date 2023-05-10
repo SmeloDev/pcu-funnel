@@ -294,8 +294,8 @@ const data_2 = [
 
 const data_3 = [
   {
-    group: "2008",
-    model: "2008",
+    group: "208",
+    model: "NEW 208 PT 130 AT6 ALL Pack",
     jan: "0",
     feb: "34",
     mar: "23",
@@ -312,8 +312,8 @@ const data_3 = [
     percent: "9.7%",
   },
   {
-    group: "2008",
-    model: "2008",
+    group: "208",
+    model: "NEW 208 1,2 PureTech 100 BVM6",
     jan: "0",
     feb: "34",
     mar: "23",
@@ -330,8 +330,8 @@ const data_3 = [
     percent: "9.7%",
   },
   {
-    group: "2008",
-    model: "Total 2008",
+    group: "208",
+    model: "Total 208",
     jan: "0",
     feb: "34",
     mar: "23",
@@ -348,8 +348,8 @@ const data_3 = [
     percent: "9.7%",
   },
   {
-    group: "308",
-    model: "308",
+    group: "Boxer",
+    model: "Boxer FG L1H1 BHDi 160 435",
     jan: "0",
     feb: "34",
     mar: "23",
@@ -366,8 +366,8 @@ const data_3 = [
     percent: "1.7%",
   },
   {
-    group: "308",
-    model: "308",
+    group: "Boxer",
+    model: "Boxer FG L4H2 BHDi 160 435",
     jan: "0",
     feb: "34",
     mar: "23",
@@ -384,8 +384,8 @@ const data_3 = [
     percent: "1.7%",
   },
   {
-    group: "308",
-    model: "Total 308",
+    group: "Boxer",
+    model: "Total Boxer",
     jan: "0",
     feb: "34",
     mar: "23",
@@ -551,6 +551,7 @@ $(document).ready(function () {
       { data: "total" },
       { data: "percent" },
     ],
+    columnDefs: [{ className: "text_align_left", targets: [0] }],
     scrollX: true,
     paging: false,
     info: false,
