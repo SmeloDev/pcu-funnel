@@ -346,6 +346,11 @@ table.dataTable thead tr.accent th.focus-tab:hover .close {
   background-color: #48a0db;
   color: #fff;
 }
+
+.max_width_cell {
+  width: 48px;
+}
+
 table.dataTable thead tr.accent th div {
   display: flex;
   align-items: center;
@@ -555,11 +560,6 @@ select#year {
   margin-left: 12px;
 }
 
-/* table.dataTable#age_of_stock tr.dtrg-group th {
-  background-color: #48a0db;
-  color: #fff;
-} */
-
 .chart-container {
   width: 50%;
 }
@@ -571,6 +571,7 @@ table.dataTable#mix_version_2 tr.dtrg-group th {
 
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.text_align_left {
   text-align: left;
+  min-width: 165px;
 }
 
 @media screen and (min-width: 1440px) {
