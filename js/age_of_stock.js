@@ -1,7 +1,6 @@
 const data_1 = [
   {
     group: "C4",
-    model: "C4",
     comendo: "1CLEF1234",
     equipment: "NEW C4 PT 100 MT6 LIVE",
     all_years_stock_2: "",
@@ -34,7 +33,6 @@ const data_1 = [
   },
   {
     group: "C4",
-    model: "C4",
     comendo: "1CLEF1234",
     equipment: "NEW C4 PT 155 EAT Feel",
     all_years_stock_2: "4",
@@ -67,8 +65,7 @@ const data_1 = [
   },
   {
     group: "C4",
-    model: "Total",
-    comendo: "",
+    comendo: "Total",
     equipment: "",
     all_years_stock_2: "10",
     all_years_stock_3: "12",
@@ -100,7 +97,6 @@ const data_1 = [
   },
   {
     group: "C3",
-    model: "C3",
     comendo: "1CLEF1234",
     equipment: "NEW C4 PT 100 MT6 LIVE",
     all_years_stock_2: "",
@@ -133,7 +129,6 @@ const data_1 = [
   },
   {
     group: "C3",
-    model: "C3",
     comendo: "1CLEF1234",
     equipment: "NEW C4 PT 155 EAT Feel",
     all_years_stock_2: "4",
@@ -166,8 +161,7 @@ const data_1 = [
   },
   {
     group: "C3",
-    model: "Total",
-    comendo: "",
+    comendo: "Total",
     equipment: "",
     all_years_stock_2: "10",
     all_years_stock_3: "12",
@@ -429,7 +423,6 @@ $(document).ready(function () {
     ordering: false,
     data: data_1,
     columns: [
-      { data: "model" },
       { data: "comendo" },
       { data: "equipment" },
       { data: "all_years_stock_2" },
@@ -461,11 +454,11 @@ $(document).ready(function () {
       { data: "age_of_stock_180plus" },
     ],
     columnDefs: [
-      { className: "accent_column", targets: [10, 18, 26] },
-      { className: "text_align_left", targets: [2] },
+      { className: "accent_column", targets: [9, 17, 25] },
+      { className: "text_align_left", targets: [1] },
       {
         className: "max_width_cell",
-        targets: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+        targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
       },
     ],
     scrollX: true,
@@ -474,7 +467,7 @@ $(document).ready(function () {
     footerCallback: function (row, data, start, end, display) {
       var api = this.api();
       const currentColumns = [
-        3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+        3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
       ];
 
       // Remove the formatting to get integer data for summation
