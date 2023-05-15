@@ -504,6 +504,7 @@ span.statistics.bad_number {
 }
 
 select#dealer,
+select#model,
 select#year {
   padding: 5px;
   width: 100%;
@@ -518,6 +519,10 @@ select#year {
   align-items: center;
 
   color: #000000;
+}
+
+select#model {
+  margin-left: 50px;
 }
 
 .table-content table.dataTable thead th,
