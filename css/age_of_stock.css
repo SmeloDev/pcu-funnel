@@ -249,7 +249,7 @@ i.fa.fa-file-o {
 .table .table-content table {
   text-align: left;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 11px;
   line-height: 15px;
   border-collapse: collapse;
@@ -577,6 +577,10 @@ table.dataTable#mix_version_2 tr.dtrg-group th {
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody > table > tbody > tr > td.text_align_left {
   text-align: left;
   min-width: 165px;
+}
+
+.weight-600 {
+  font-weight: 600;
 }
 
 @media screen and (min-width: 1440px) {

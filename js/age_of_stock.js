@@ -488,6 +488,15 @@ $(document).ready(function () {
       });
     },
   });
+
+  const indexes = table
+    .rows()
+    .eq(0)
+    .filter(function (rowIdx) {
+      return table.cell(rowIdx, 0).data().includes("Total") ? true : false;
+    });
+
+  table.rows(indexes).nodes().to$().addClass("weight-600");
 });
 
 $(document).ready(function () {
@@ -511,6 +520,7 @@ $(document).ready(function () {
       { data: "total" },
       { data: "percent" },
     ],
+    columnDefs: [{ className: "text_align_left", targets: [0] }],
     scrollX: true,
     paging: false,
     info: false,
@@ -588,6 +598,15 @@ $(document).ready(function () {
       });
     },
   });
+
+  const indexes = table
+    .rows()
+    .eq(0)
+    .filter(function (rowIdx) {
+      return table.cell(rowIdx, 0).data().includes("Total") ? true : false;
+    });
+
+  table.rows(indexes).nodes().to$().addClass("weight-600");
 });
 
 const qualityExpandBtn = document.querySelector("section.quality-section .expand_section-btn");
